@@ -41,17 +41,20 @@ window.addEventListener('scroll', function() {
     var links = document.querySelectorAll('nav a');
 
     var current = '';
+
     sections.forEach(function(section) {
         var top = section.offsetTop - 80;
+
         if (window.scrollY >= top) {
             current = '#' + section.getAttribute('id');
         }
     });
 
     links.forEach(function(link) {
-        link.style.color = '#63b3ed';
+        link.classList.remove('active');
+
         if (link.getAttribute('href') === current) {
-            link.style.color = '#ffffff';
+            link.classList.add('active');
         }
     });
 });
