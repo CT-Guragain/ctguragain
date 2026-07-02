@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CT Guragain - Network & Security</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <header>
+        <div class="header-inner">
+            <h1>Chalsh Guragain</h1>
+            <p class="tagline"><strong> Network & Security Engineer | NSE 4 | CCNA | Windows Server | Sangfor Certified HCI & XDR </strong><br></p>
+            <nav>
+                <a href="#esxi">ESXi Setup</a>
+                <a href="#ubuntu">Ubuntu VM</a>
+                <nav>
+    		<a href="#esxi">ESXi Setup</a>
+    		<a href="#ubuntu">Ubuntu VM</a>
+    		<a href="#contact">Contact</a>
+    		<a href="/terhathum/index1.html">Terhathum Journal</a>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+
+        <section id="about">
+            <h2>About</h2>
+            <p>I work as a network and Technical Support Engineer at Variable Solutions
+                Pvt Ltd in Kathmandu, This is a path to make a virtual machine in Esxi.
+               This site is where I document things I'm learning and building 
+               mostly around virtualization, Linux servers, and firewall config.</p>
+            <p><strong>Also building a <a href="https://github.com/CT-Guragain/Net_troubleshooting-chatbot" target="_blank">
+               network troubleshooting chatbot</a> using the Claude API.</strong></p>
+        </section>
+
+        <section id="esxi">
+            <h2>ESXi — Setting Up a Virtual Machine</h2>
+            <p><b>These are the steps I followed to set up an Ubuntu server inside VMware ESXi.
+               I'm using thin provisioning for the disk to save space on the datastore.</b></p>
+
+            <div class="step">
+                <h3>Step 1 — Create a new VM</h3>
+                <p>Go to the ESXi web interface, click "Create / Register VM" and follow the wizard.
+                   Choose "Create a new virtual machine" and give it a name.</p>
+                <img src="Esxisetup-1.png" alt="ESXi create VM step 1">
+            </div>
+
+            <div class="step">
+                <h3>Step 2 — Configure storage (thin provisioning)</h3>
+                <p>On the disk settings page, change the provisioning to Thin.
+                   This means the disk only uses actual space instead of reserving the full amount upfront.</p>
+                <img src="Esxisetup-2.png" alt="ESXi disk thin provisioning">
+                <img src="Esxisetup-3.png" alt="ESXi storage config">
+            </div>
+
+            <div class="step">
+                <h3>Step 3 — Finish and power on</h3>
+                <p>Review the summary and click Finish. Then power on the VM and attach the Ubuntu ISO
+                   to boot from it.</p>
+                <img src="Esxisetup-4.png" alt="ESXi VM summary">
+            </div>
+        </section>
+
+        <section id="ubuntu">
+            <h2>Ubuntu Server — Initial Configuration</h2>
+            <p>After the VM boots from the ISO, go through the Ubuntu Server installer.
+               The main things to set correctly are the network interface and the disk partition.</p>
+
+            <div class="step">
+                <h3>Network setup during install</h3>
+                <img src="Settingup-vm1.png" alt="Ubuntu network setup">
+            </div>
+
+            <div class="step">
+                <h3>Disk partitioning</h3>
+                <img src="Settingup-vm2.png" alt="Ubuntu disk partition">
+            </div>
+
+            <div class="step">
+                <h3>More config steps</h3>
+                <img src="Settingup-vm3.png" alt="Ubuntu install step 3"><br><br>
+                <p><b>These are the step in the ubuntu server terminal after the vm setup in the <strong>Vmware ESXI</strong></b></p>
+                <img src="Settingup-vm4.png" alt="Ubuntu install step 4">
+            </div>
+        </section>
+
+        <section id="contact">
+            <h2>Contact</h2>
+            <p>Feel free to reach out if you want to talk networking, security, or just have questions.</p>
+
+            <form id="contact-form">
+                <label for="name">Name</label>
+                <input type="text" id="name" placeholder="Your name" required>
+
+                <label for="email">Email</label>
+                <input type="email" id="email" placeholder="your@email.com" required>
+
+                <label for="topic">Topic</label>
+                <select id="topic">
+                    <option value="">-- select a topic --</option>
+                    <option value="networking">Networking</option>
+                    <option value="security">Cybersecurity</option>
+                    <option value="linux">Linux / Servers</option>
+                    <option value="other">Other</option>
+                </select>
+
+                <label for="message">Message</label>
+                <textarea id="message" rows="4" placeholder="What's on your mind?"></textarea>
+
+                <button type="submit">Send</button>
+                <p id="form-msg"></p>
+            </form>
+        </section>
+
+    </main>
+
+    <footer>
+        <p>Chalsh Guragain &mdash; Terhathum, Nepal</p>
+        <p>
+            <a href="https://github.com/CT-Guragain" target="_blank">GitHub</a> &nbsp;|&nbsp;
+            <a href="https://www.linkedin.com/in/chalsh-guragain" target="_blank">LinkedIn</a>
+        </p>
+    </footer>
+    <script src="script.js"></script>
+</body>
+</html>

@@ -1,60 +1,31 @@
-// contact form handler
-document.getElementById('contact-form').addEventListener('submit', function(e) {
-    e.preventDefault();
+// Nav background on scroll
+const nav = document.getElementById('siteNav');
+const onScroll = () => {
+  if (window.scrollY > 40) {
+    nav.classList.add('is-scrolled');
+  } else {
+    nav.classList.remove('is-scrolled');
+  }
+};
+window.addEventListener('scroll', onScroll, { passive: true });
+onScroll();
 
-    var name = document.getElementById('name').value.trim();
-    var email = document.getElementById('email').value.trim();
-    var message = document.getElementById('message').value.trim();
-    var msg = document.getElementById('form-msg');
-
-    if (!name || !email || !message) {
-        msg.style.color = '#c0392b';
-        msg.textContent = 'Please fill in all required fields.';
-        return;
-    }
-
-    msg.style.color = '#2f855a';
-    msg.textContent = 'Thanks ' + name + ', message received. I will get back to you soon.';
-
-    // reset form after a couple seconds
-    setTimeout(function() {
-        document.getElementById('contact-form').reset();
-        msg.textContent = '';
-    }, 3000);
-});
-
-// smooth scroll for nav links
-var navLinks = document.querySelectorAll('nav a');
-navLinks.forEach(function(link) {
-    link.addEventListener('click', function(e) {
-        var target = document.querySelector(this.getAttribute('href'));
-        if (target) {
-            e.preventDefault();
-            target.scrollIntoView({ behavior: 'smooth' });
-        }
+// Reveal-on-scroll
+const revealEls = document.querySelectorAll('.reveal');
+if ('IntersectionObserver' in window) {
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('is-visible');
+        io.unobserve(entry.target);
+      }
     });
-});
+  }, { threshold: 0.15 });
+  revealEls.forEach((el) => io.observe(el));
+} else {
+  revealEls.forEach((el) => el.classList.add('is-visible'));
+}
 
-// highlight the active section while scrolling
-window.addEventListener('scroll', function() {
-    var sections = document.querySelectorAll('main section');
-    var links = document.querySelectorAll('nav a');
-
-    var current = '';
-
-    sections.forEach(function(section) {
-        var top = section.offsetTop - 80;
-
-        if (window.scrollY >= top) {
-            current = '#' + section.getAttribute('id');
-        }
-    });
-
-    links.forEach(function(link) {
-        link.classList.remove('active');
-
-        if (link.getAttribute('href') === current) {
-            link.classList.add('active');
-        }
-    });
-});
+// Footer year
+const yearEl = document.getElementById('year');
+if (yearEl) yearEl.textContent = new Date().getFullYear();
