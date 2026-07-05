@@ -1,0 +1,201 @@
+/* ============================================================
+   Portfolio / CV page — extends styles.css tokens
+   ============================================================ */
+
+.work-page .site-nav { position: fixed; }
+
+/* ---------- Hero ---------- */
+.work-hero {
+  background: var(--pine);
+  padding: clamp(140px, 20vw, 200px) clamp(20px, 5vw, 56px) clamp(64px, 8vw, 96px);
+}
+.work-hero-inner {
+  max-width: var(--max);
+  margin: 0 auto;
+  color: var(--paper);
+}
+.work-hero .eyebrow { display: block; margin-bottom: 18px; }
+.work-hero h1 {
+  color: var(--paper);
+  font-size: clamp(2.2rem, 5.5vw, 4rem);
+  font-style: italic;
+  line-height: 1.05;
+}
+.work-hero h1 em { font-style: normal; color: var(--marigold); }
+.work-role {
+  margin-top: 14px;
+  font-family: var(--mono);
+  font-size: 0.9rem;
+  letter-spacing: 0.03em;
+  color: rgba(251,250,245,0.75);
+}
+.work-hero .lede {
+  margin-top: 18px;
+  max-width: 60ch;
+  color: rgba(251,250,245,0.86);
+  font-size: 1.02rem;
+  font-weight: 300;
+}
+
+.contact-row {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px 28px;
+  margin: 32px 0 0;
+  padding: 0;
+  font-family: var(--mono);
+  font-size: 0.8rem;
+  color: rgba(251,250,245,0.7);
+}
+.contact-row a { text-decoration: none; border-bottom: 1px solid rgba(217,154,61,0.4); }
+.contact-row a:hover { color: var(--marigold); border-color: var(--marigold); }
+
+.work-cta { display: flex; flex-wrap: wrap; gap: 14px; margin-top: 36px; }
+.btn-primary, .btn-ghost {
+  font-family: var(--mono);
+  font-size: 0.78rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  text-decoration: none;
+  padding: 13px 24px;
+  border-radius: 2px;
+  transition: opacity 0.25s ease, background 0.25s ease, color 0.25s ease;
+}
+.btn-primary { background: var(--marigold); color: var(--pine); }
+.btn-primary:hover { opacity: 0.88; }
+.btn-ghost { border: 1px solid rgba(251,250,245,0.35); color: var(--paper); }
+.work-section.on-pine .btn-ghost { border-color: rgba(251,250,245,0.35); }
+.btn-ghost:hover { border-color: var(--marigold); color: var(--marigold); }
+
+/* ---------- Sections ---------- */
+.work-section {
+  padding: clamp(56px, 8vw, 96px) clamp(20px, 5vw, 56px);
+  background: var(--mist);
+}
+.work-section.on-pine { background: var(--pine); }
+.work-container { max-width: var(--max); margin: 0 auto; }
+.work-container.narrow { max-width: 760px; }
+
+.work-section .index {
+  font-family: var(--mono);
+  color: var(--moss);
+  font-size: 0.78rem;
+  letter-spacing: 0.1em;
+  display: block;
+  margin-bottom: 14px;
+}
+.work-section .index.light { color: var(--marigold); }
+.work-section h2 {
+  font-size: clamp(1.7rem, 3.2vw, 2.3rem);
+  font-style: italic;
+  margin-bottom: 40px;
+}
+.work-section h2.light { color: var(--paper); }
+
+.summary-text {
+  font-size: 1.08rem;
+  color: var(--ink-soft);
+  max-width: 70ch;
+}
+
+/* ---------- Timeline ---------- */
+.timeline {
+  position: relative;
+  padding-left: 32px;
+  border-left: 2px solid var(--moss);
+}
+.timeline-item { position: relative; padding-bottom: 44px; }
+.timeline-item:last-child { padding-bottom: 0; }
+.timeline-marker {
+  position: absolute;
+  left: -39px;
+  top: 4px;
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  background: var(--marigold);
+  border: 3px solid var(--mist);
+}
+.timeline-content .tag {
+  font-family: var(--mono);
+  font-size: 0.72rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--moss);
+}
+.timeline-content h3 { margin-top: 8px; font-size: 1.3rem; }
+.timeline-content .org { color: var(--ink-soft); font-size: 0.92rem; margin-top: 2px; }
+.timeline-content ul { margin-top: 14px; padding-left: 20px; color: var(--ink-soft); }
+.timeline-content li { margin-bottom: 8px; max-width: 70ch; }
+
+/* ---------- Skills ---------- */
+.skills-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+  gap: 20px;
+}
+.skill-card {
+  background: rgba(251,250,245,0.06);
+  border: 1px solid rgba(251,250,245,0.14);
+  padding: 24px;
+  border-radius: 2px;
+}
+.skill-card h3 { color: var(--marigold); font-size: 1rem; font-family: var(--body); font-weight: 600; }
+.skill-card p { color: rgba(251,250,245,0.75); margin-top: 10px; font-size: 0.92rem; }
+
+/* ---------- Certifications ---------- */
+.certs-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 12px;
+}
+.cert-chip {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 12px;
+  background: var(--paper);
+  border: 1px solid rgba(23,38,33,0.1);
+  padding: 14px 18px;
+  border-radius: 2px;
+}
+.cert-name { font-size: 0.9rem; color: var(--ink); }
+.cert-date { font-family: var(--mono); font-size: 0.7rem; color: var(--moss); white-space: nowrap; }
+
+/* ---------- Projects ---------- */
+.projects-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 24px;
+}
+.project-card {
+  background: var(--paper);
+  border-top: 2px solid var(--marigold);
+  padding: 26px;
+}
+.project-card h3 { font-size: 1.05rem; }
+.project-card p { color: var(--ink-soft); margin-top: 12px; font-size: 0.92rem; }
+
+/* ---------- Education ---------- */
+.edu-item { margin-bottom: 24px; }
+.edu-item h3 { font-size: 1.1rem; }
+.edu-item .org { color: var(--ink-soft); margin-top: 4px; font-size: 0.92rem; }
+
+/* ---------- Closing ---------- */
+.work-closing {
+  background: var(--paper);
+  padding: clamp(56px, 8vw, 96px) clamp(20px, 5vw, 56px);
+  text-align: left;
+}
+.work-closing p { color: var(--ink-soft); font-size: 1.02rem; max-width: 68ch; }
+.work-closing .btn-primary { background: var(--pine); color: var(--paper); }
+.work-closing .btn-ghost { border-color: rgba(23,38,33,0.25); color: var(--ink); }
+.work-closing .btn-ghost:hover { border-color: var(--marigold); color: var(--moss); }
+
+/* ---------- Responsive ---------- */
+@media (max-width: 560px) {
+  .contact-row { gap: 8px 18px; }
+  .timeline { padding-left: 24px; }
+  .timeline-marker { left: -31px; }
+}

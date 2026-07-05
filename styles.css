@@ -113,7 +113,18 @@ h1, h2, h3 {
 }
 .site-nav a { text-decoration: none; opacity: 0.85; }
 .site-nav a:hover { opacity: 1; color: var(--marigold); }
-.nav-toggle { display: none; }
+
+.nav-toggle {
+  display: none;
+  background: none;
+  border: none;
+  color: var(--paper);
+  font-size: 1.35rem;
+  line-height: 1;
+  cursor: pointer;
+  padding: 6px 4px;
+  z-index: 60;
+}
 
 /* ---------- Hero ---------- */
 .hero {
@@ -410,5 +421,22 @@ footer a { text-decoration: none; color: var(--marigold); }
 }
 
 @media (max-width: 560px) {
-  .site-nav ul { display: none; }
+  .nav-toggle { display: block; }
+
+  .site-nav ul {
+    position: fixed;
+    top: 0;
+    right: -100%;
+    height: 100vh;
+    width: min(78vw, 300px);
+    margin: 0;
+    padding: 96px 32px 40px;
+    flex-direction: column;
+    gap: 22px;
+    background: rgba(23, 38, 33, 0.97);
+    backdrop-filter: blur(10px);
+    transition: right 0.35s ease;
+  }
+  .site-nav ul.is-open { right: 0; }
+  .site-nav ul a { font-size: 1rem; }
 }

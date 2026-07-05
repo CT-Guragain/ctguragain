@@ -10,6 +10,29 @@ const onScroll = () => {
 window.addEventListener('scroll', onScroll, { passive: true });
 onScroll();
 
+// Mobile nav toggle
+const navToggle = document.getElementById('navToggle');
+const navLinks = document.getElementById('navLinks');
+if (navToggle && navLinks) {
+  const closeMenu = () => {
+    navLinks.classList.remove('is-open');
+    navToggle.setAttribute('aria-expanded', 'false');
+    navToggle.textContent = '☰';
+  };
+  const toggleMenu = () => {
+    const isOpen = navLinks.classList.toggle('is-open');
+    navToggle.setAttribute('aria-expanded', String(isOpen));
+    navToggle.textContent = isOpen ? '✕' : '☰';
+  };
+  navToggle.addEventListener('click', toggleMenu);
+  navLinks.querySelectorAll('a').forEach((link) => {
+    link.addEventListener('click', closeMenu);
+  });
+  window.addEventListener('resize', () => {
+    if (window.innerWidth > 560) closeMenu();
+  });
+}
+
 // Reveal-on-scroll
 const revealEls = document.querySelectorAll('.reveal');
 if ('IntersectionObserver' in window) {
