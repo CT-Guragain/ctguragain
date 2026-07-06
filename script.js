@@ -52,3 +52,13 @@ if ('IntersectionObserver' in window) {
 // Footer year
 const yearEl = document.getElementById('year');
 if (yearEl) yearEl.textContent = new Date().getFullYear();
+const siteNav = document.getElementById("siteNav");
+
+//Added section
+window.addEventListener("scroll", () => {
+    if (window.scrollY > 50) {
+        siteNav.classList.add("is-scrolled");
+    } else {
+        siteNav.classList.remove("is-scrolled");
+    }
+});
