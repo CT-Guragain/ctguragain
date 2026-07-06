@@ -210,7 +210,14 @@
     transition: background 0.35s ease;
     z-index: 999;
 }
+.brand{
+    color:white;
+    transition: color .3s;
+}
 
+.site-nav.is-scrolled .brand{
+    color:#f4b400;
+}
 /* After scrolling */
 .site-nav.is-scrolled {
     background: #1e3a8a;      /* Blue */
