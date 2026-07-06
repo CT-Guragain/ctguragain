@@ -199,3 +199,19 @@
   .timeline { padding-left: 24px; }
   .timeline-marker { left: -31px; }
 }
+
+/* Default */
+.site-nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background: transparent;   /* or black */
+    transition: background 0.35s ease;
+    z-index: 999;
+}
+
+/* After scrolling */
+.site-nav.is-scrolled {
+    background: #1e3a8a;      /* Blue */
+}
