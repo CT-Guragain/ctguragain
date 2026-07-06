@@ -19,6 +19,7 @@ if (navToggle && navLinks) {
     navToggle.setAttribute('aria-expanded', 'false');
     navToggle.textContent = '☰';
   };
+  
   const toggleMenu = () => {
     const isOpen = navLinks.classList.toggle('is-open');
     navToggle.setAttribute('aria-expanded', String(isOpen));
