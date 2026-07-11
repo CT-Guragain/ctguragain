@@ -1,4 +1,4 @@
-// Nav background on scroll
+// Nav background on the scrolling of website
 const nav = document.getElementById('siteNav');
 const onScroll = () => {
   if (window.scrollY > 40) {
@@ -33,7 +33,6 @@ if (navToggle && navLinks) {
     if (window.innerWidth > 560) closeMenu();
   });
 }
-
 // Reveal-on-scroll
 const revealEls = document.querySelectorAll('.reveal');
 if ('IntersectionObserver' in window) {
