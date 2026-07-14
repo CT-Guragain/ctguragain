@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Support & Feedback — Terhathum</title>
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<nav class="site-nav">
+  <a class="brand" href="index.html">← Back to Journal</a>
+</nav>
+
+<main id="main" style="padding: 120px 20px; max-width: 600px; margin: 0 auto;">
+  <h1>Support &amp; Feedback</h1>
+  <p>Have questions about Terhathum or want to leave a note? Drop your details below.</p>
+  
+  <hr>
+  <br>
+
+  <form action="#" method="POST">
+    
+    <fieldset>
+      <legend><strong>Personal Details</strong></legend>
+      <br>
+      <label for="name">Full Name:</label><br>
+      <input type="text" id="name" name="name" placeholder="Your Name" required><br><br>
+
+      <label for="email">Email Address:</label><br>
+      <input type="email" id="email" name="email" placeholder="you@example.com" required><br><br>
+    </fieldset>
+    
+    <br>
+    
+    <fieldset>
+      <legend><strong>Your Feedback</strong></legend>
+      <br>
+      <label for="topic">Topic:</label><br>
+      <select id="topic" name="topic">
+        <option value="general">General Inquiry</option>
+        <option value="support">Technical Support</option>
+        <option value="feedback">Website Feedback</option>
+      </select><br><br>
+
+      <label for="message">Message:</label><br>
+      <textarea id="message" name="message" rows="6" style="width: 100%;" placeholder="Write your thoughts here..." required></textarea><br><br>
+    </fieldset>
+
+    <br>
+    <button type="submit" style="padding: 10px 20px; cursor: pointer;">Submit Feedback</button>
+  </form>
+</main>
+
+<footer>
+  <span>© Chalsh Guragain · Terhathum, Nepal</span>
+</footer>
+
+</body>
+</html>
