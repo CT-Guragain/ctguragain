@@ -3,16 +3,48 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Portfolio & CV — Chalsh Guragain</title>
+<strong><title>Portfolio & CV — Chalsh Guragain</title></strong>
 <meta name="description" content="Chalsh Guragain — Technical Support Engineer specializing in Fortinet, Cisco, and enterprise network & security infrastructure.">
 <link rel="stylesheet" href="styles.css">
 <link rel="stylesheet" href="portfolio.css">
+<style>
+  /* Added: profile photo styling for the hero section */
+  .work-hero-inner{
+    display:flex;
+    flex-wrap:wrap;
+    align-items:center;
+    gap:2rem;
+  }
+  .work-hero-photo{
+    flex:0 0 auto;
+    width:160px;
+    height:160px;
+    border-radius:50%;
+    overflow:hidden;
+    border:3px solid rgba(255,255,255,0.25);
+    box-shadow:0 8px 24px rgba(0,0,0,0.25);
+  }
+  .work-hero-photo img{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    display:block;
+  }
+  .work-hero-text{
+    flex:1 1 320px;
+    min-width:280px;
+  }
+  @media (max-width:600px){
+    .work-hero-inner{ justify-content:center; text-align:center; }
+    .work-hero-photo{ width:120px; height:120px; }
+  }
+</style>
 </head>
-
+<!--<a class="btn-primary" href="https://www.youtube.com/channel/UC0_btWBZ8KacyZ-xo0OsPzQ">Youtube <a>-->
 <body class="work-page">
 <a class="skip-link" href="#main">Skip to content</a>
 
-<nav class="site-nav is-scrolled" id="siteNav">
+<nav class="site-nav" id="siteNav">
   <a class="brand" href="index.html">Terhathum</a>
   <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation" aria-expanded="false" aria-controls="navLinks">☰</button>
   <ul id="navLinks">
@@ -26,21 +58,26 @@
 
   <header class="work-hero">
     <div class="work-hero-inner">
-      <span class="eyebrow">The work behind the lens</span>
-      <h1>Chalsh <em>Guragain</em></h1>
-      <p class="work-role">Technical Support Engineer — Network &amp; Security Infrastructure</p>
-      <p class="lede">Hands-on across the Fortinet ecosystem, Cisco switching &amp; routing, and cloud-managed platforms — keeping enterprise networks running the way I keep this site's ridgelines standing: quietly, and built to hold.</p>
+      <div class="work-hero-photo">
+        <img src="images/Fortinext.jpg" alt="Chalsh Guragain">
+      </div>
+      <div class="work-hero-text">
+        <span class="eyebrow">The work behind the lens</span>
+        <h1>Chalsh <em>Guragain</em></h1>
+        <p class="work-role">Technical Support Engineer — Network &amp; Security Infrastructure</p>
+        <p class="lede">Hands-on across the Fortinet ecosystem, Cisco switching &amp; routing, and cloud-managed platforms — keeping enterprise networks running the way I keep this site's ridgelines standing: quietly, and built to hold.</p>
 
-      <ul class="contact-row">
-        <li><a href="mailto:chalshguragain77@gmail.com">chalshguragain77@gmail.com</a></li>
-        <li><a href="tel:+9779767386704">+977 976-738-6704</a></li>
-        <li><a href="https://www.linkedin.com/in/chalsh-guragain-572266362/" target="_blank" rel="noopener">LinkedIn</a></li>
-        <li>Phedap-2, Terhathum, Nepal</li>
-      </ul>
+        <ul class="contact-row">
+          <li><a href="mailto:chalshguragain77@gmail.com">chalshguragain77@gmail.com</a></li>
+          <li><a href="tel:+9779767386704">+977 976-738-6704</a></li>
+          <li><a href="https://www.linkedin.com/in/chalsh-guragain-572266362/" target="_blank" rel="noopener">LinkedIn</a></li>
+          <li>Phedap-2, Terhathum, Nepal</li>
+        </ul>
 
-      <div class="work-cta">
-        <a class="btn-primary" href="assets/Chalsh_Guragain_Resume.pdf" download>Download CV</a>
-        <a class="btn-ghost" href="index.html">Back to the journal ↑</a>
+        <div class="work-cta">
+          <a class="btn-primary" href="assets/Chalsh_Guragain_Resume.pdf" download>Download CV</a>
+          <a class="btn-ghost" href="index.html">Back to the journal ↑</a>
+        </div>
       </div>
     </div>
   </header>
@@ -178,7 +215,6 @@
       </div>
     </div>
   </section>
-
   <svg class="ridge" viewBox="0 0 1200 60" preserveAspectRatio="none" aria-hidden="true">
     <path d="M0,60 L0,32 C120,10 240,45 360,28 C480,12 600,42 720,24 C840,8 960,40 1080,22 C1140,14 1180,20 1200,26 L1200,60 Z"></path>
   </svg>
@@ -193,7 +229,7 @@
       </div>
       <div class="edu-item">
         <h3>+2 Management</h3>
-        <p class="org">Kasturi College of Management, HSEB Kathmandu — 2019</p>
+        <p class="org">Kasturi College of Management, Itahari, Sunsari — 2019</p>
       </div>
     </div>
   </section>
@@ -207,9 +243,7 @@
       </div>
     </div>
   </section>
-
 </main>
-
 <footer>
   <span>© <span id="year"></span> Chalsh Guragain · Terhathum, Nepal</span>
   <a href="index.html">Back to the journal ↑</a>

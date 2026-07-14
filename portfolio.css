@@ -5,8 +5,8 @@
 .work-page .site-nav { position: fixed; }
 
 /* ---------- Hero ---------- */
-.work-hero {
-  background: var(--pine);
+.work-hero{
+    background:#111;
   padding: clamp(140px, 20vw, 200px) clamp(20px, 5vw, 56px) clamp(64px, 8vw, 96px);
 }
 .work-hero-inner {
@@ -198,4 +198,27 @@
   .contact-row { gap: 8px 18px; }
   .timeline { padding-left: 24px; }
   .timeline-marker { left: -31px; }
+}
+
+/* Default */
+.site-nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background: transparent;   /* or black */
+    transition: background 0.35s ease;
+    z-index: 999;
+}
+.brand{
+    color:white;
+    transition: color .3s;
+}
+
+.site-nav.is-scrolled .brand{
+    color:#f4b400;
+}
+/* After scrolling */
+.site-nav.is-scrolled {
+    background: #1e3a8a;      /* Blue */
 }

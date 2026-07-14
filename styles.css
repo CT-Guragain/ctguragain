@@ -91,18 +91,38 @@ h1, h2, h3 {
   mix-blend-mode: normal;
   transition: background 0.4s ease, color 0.4s ease, padding 0.3s ease;
 }
+/* ---------- Nav Scrolled State Transformation ---------- */
 .site-nav.is-scrolled {
-  background: rgba(23, 38, 33, 0.86);
-  backdrop-filter: blur(10px);
-  padding-top: 14px;
-  padding-bottom: 14px;
+  /* Shifts from transparent to a solid, blurred misty panel */
+  background: rgba(238, 241, 234, 0.95); /* Using var(--mist) with opacity */
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  
+  /* Compresses the height slightly for a sleeker profile */
+  padding-top: 12px;
+  padding-bottom: 12px;
+  
+  /* Inverts text colors dynamically for readability against the light background */
+  color: var(--pine);
+  box-shadow: 0 4px 30px rgba(23, 38, 33, 0.08);
 }
-.site-nav .brand {
-  font-family: var(--display);
-  font-size: 1.05rem;
-  font-weight: 600;
-  letter-spacing: 0.01em;
-  text-decoration: none;
+
+/* Modifies link and brand colors during the active scroll phase */
+.site-nav.is-scrolled .brand,
+.site-nav.is-scrolled ul a {
+  color: var(--pine);
+  opacity: 0.9;
+}
+
+/* Enhances mobile button color matching when scrolled */
+.site-nav.is-scrolled .nav-toggle {
+  color: var(--pine);
+}
+
+/* Hover accent states on scroll */
+.site-nav.is-scrolled a:hover {
+  opacity: 1;
+  color: var(--moss); /* Changes hover accent to a deep organic moss green */
 }
 .site-nav ul {
   list-style: none;
@@ -433,10 +453,20 @@ footer a { text-decoration: none; color: var(--marigold); }
     padding: 96px 32px 40px;
     flex-direction: column;
     gap: 22px;
-    background: rgba(23, 38, 33, 0.97);
+    /* Keeps the mobile drawer dark and uniform regardless of desktop scroll background */
+    background: rgba(23, 38, 33, 0.97); 
     backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
     transition: right 0.35s ease;
   }
+  
+  /* Forces the drawer items to remain white/marigold for contrast inside the dark drawer */
+  .site-nav ul a { 
+    font-size: 1rem; 
+    color: var(--paper) !important; 
+  }
+  .site-nav ul a:hover {
+    color: var(--marigold) !important;
+  }
   .site-nav ul.is-open { right: 0; }
-  .site-nav ul a { font-size: 1rem; }
 }
