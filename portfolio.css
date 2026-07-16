@@ -1,13 +1,30 @@
 /* ============================================================
    Portfolio / CV page — extends styles.css tokens
    ============================================================ */
-
-.work-page .site-nav { position: fixed; }
-
 /* ---------- Hero ---------- */
 .work-hero{
-    background:#111;
-  padding: clamp(140px, 20vw, 200px) clamp(20px, 5vw, 56px) clamp(64px, 8vw, 96px);
+    position: relative;
+
+    background-image:
+        linear-gradient(
+            rgba(0,0,0,.55),
+            rgba(0,0,0,.55)
+        ),
+        url("./images/Lumbini.jpg");
+
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+
+    min-height: 100vh;
+
+    display: flex;
+    align-items: center;
+
+    padding: clamp(140px,20vw,200px)
+             clamp(20px,5vw,56px)
+             clamp(64px,8vw,96px);
 }
 .work-hero-inner {
   max-width: var(--max);
