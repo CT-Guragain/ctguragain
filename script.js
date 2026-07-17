@@ -1,6 +1,5 @@
 // Nav background change on scrolling
 const nav = document.getElementById('siteNav');
-
 const onScroll = () => {
   // Triggers the background change after scrolling down 40px
   if (window.scrollY > 40) {
@@ -9,35 +8,30 @@ const onScroll = () => {
     nav.classList.remove('is-scrolled');
   }
 };
-
 // Use passive listener for optimized scroll performance
-
 window.addEventListener('scroll', onScroll, { passive: true });
 onScroll(); // Run immediately on load in case the page is already scrolled
 
 // Mobile nav toggle
 const navToggle = document.getElementById('navToggle');
 const navLinks = document.getElementById('navLinks');
-
 if (navToggle && navLinks) {
   const closeMenu = () => {
     navLinks.classList.remove('is-open');
     navToggle.setAttribute('aria-expanded', 'false');
     navToggle.textContent = '☰';
   };
-  
+
   const toggleMenu = () => {
     const isOpen = navLinks.classList.toggle('is-open');
     navToggle.setAttribute('aria-expanded', String(isOpen));
     navToggle.textContent = isOpen ? '✕' : '☰';
   };
-
   navToggle.addEventListener('click', toggleMenu);
-  
+
   navLinks.querySelectorAll('a').forEach((link) => {
     link.addEventListener('click', closeMenu);
   });
-
   window.addEventListener('resize', () => {
     if (window.innerWidth > 560) closeMenu();
   });
@@ -54,21 +48,10 @@ if ('IntersectionObserver' in window) {
       }
     });
   }, { threshold: 0.15 });
-  
   revealEls.forEach((el) => io.observe(el));
 } else {
   revealEls.forEach((el) => el.classList.add('is-visible'));
 }
-
 // Footer year
 const yearEl = document.getElementById('year');
 if (yearEl) yearEl.textContent = new Date().getFullYear();
-
-//Added section
-window.addEventListener("scroll", () => {
-    if (window.scrollY > 50) {
-        siteNav.classList.add("is-scrolled");
-    } else {
-        siteNav.classList.remove("is-scrolled");
-    }
-});
