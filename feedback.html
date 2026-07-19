@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
+    
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Support & Feedback — Terhathum</title>
 <link rel="stylesheet" href="feedback.css">
@@ -23,45 +24,65 @@
 
 </nav>
 
-<main id="main">
-  <h1>Support &amp; Feedback</h1>
-  <p>Have questions about Terhathum or want to leave a note? Drop your details below.</p>
-  
-  <hr>
-    
-  <br>
+<section class="feedback-hero">
 
-  <form action="#" method="POST">
-    
-    <fieldset>
-      <legend><strong>Personal Details</strong></legend>
-      <br>
-      <label for="name">Full Name:</label><br>
-      <input type="text" id="name" name="name" placeholder="Your Name" required><br><br>
+    <div class="feedback-content">
 
-      <label for="email">Email Address:</label><br>
-      <input type="email" id="email" name="email address" placeholder="you@example.com" required><br><br>
-    </fieldset>
-    <br>
-    <fieldset>
-      <legend><strong>Your Feedback</strong></legend>
-      <br>
-      <label for="topic">Topic:</label><br>
-      <select id="topic" name="topic">
-        <option value="general">General Inquiry</option>
-        <option value="support">Technical Support</option>
-        <option value="feedback">Website Feedback</option>
-      </select><br><br>
+        <span class="eyebrow">Support</span>
 
-      <label for="message">Message:</label><br>
-      <textarea id="message" name="message" rows="6" style="width: 100%;" placeholder="Write your thoughts here..." required></textarea><br><br>
-    </fieldset>
-      
-    <br>
-      
-    <button type="submit" style="padding: 10px 20px; cursor: pointer;">Submit Feedback</button>
-  </form>
-</main>
+        <h1>
+            We'd love to
+            <em>hear from you</em>
+        </h1>
+
+        <p class="lede">
+            Have questions about Terhathum or want to leave a note?
+            Drop your details below.
+        </p>
+
+    </div>
+
+</section>
+
+<section class="feedback-section">
+
+<div class="feedback-card">
+
+<form action="#" method="POST">
+
+    <label for="name">Full Name</label>
+    <input type="text" id="name" placeholder="Your Name">
+
+    <label for="email">Email Address</label>
+    <input type="email" id="email" placeholder="you@example.com">
+
+    <label for="topic">Topic</label>
+
+    <select id="topic">
+
+        <option>General Inquiry</option>
+        <option>Technical Support</option>
+        <option>Website Feedback</option>
+
+    </select>
+
+    <label for="message">Message</label>
+
+    <textarea
+        id="message"
+        rows="7"
+        placeholder="Write your thoughts here..."
+    ></textarea>
+
+    <button class="feedback-btn">
+        Submit Feedback
+    </button>
+
+</form>
+
+</div>
+
+</section>
 
 <footer>
   <span>© Chalsh Guragain · Terhathum, Nepal</span>
