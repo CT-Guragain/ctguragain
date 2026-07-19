@@ -1,20 +1,12 @@
 body{
-    background:red !important;
     margin:0;
-    font-family:Arial, Helvetica, sans-serif;
+    min-height:100vh;
+    background: linear-gradient(
+        rgba(0,0,0,0.55),
+        rgba(0,0,0,0.55)
+    ),
+    url("./images/feedback.jpg") center center / cover no-repeat fixed;
+
+    font-family: Arial, Helvetica, sans-serif;
     color:#fff;
-
-    background-image:
-        linear-gradient(
-            rgba(0,0,0,.60),
-            rgba(0,0,0,.60)
-        ),
-        url("./images/feedback.jpg");
-
-    background-size:cover;
-    background-position:center;
-    background-repeat:no-repeat;
-    background-attachment:fixed;
-
-    background-color:#0d1117;
 }
