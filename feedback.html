@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-    
+
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Support & Feedback — Terhathum</title>
 <link rel="stylesheet" href="styles.css">
@@ -45,21 +45,21 @@
 
 </section>
 
-<section class="feedback-section">
+<section class="feedback-section" id="main">
 
 <div class="feedback-card">
 
-<form action="#" method="POST">
+<form id="feedbackForm" action="https://formspree.io/f/xpqvroop" method="POST">
 
     <label for="name">Full Name</label>
-    <input type="text" id="name" placeholder="Your Name">
+    <input type="text" id="name" name="name" placeholder="Your Name" required>
 
     <label for="email">Email Address</label>
-    <input type="email" id="email" placeholder="you@example.com">
+    <input type="email" id="email" name="email" placeholder="you@example.com" required>
 
     <label for="topic">Topic</label>
 
-    <select id="topic">
+    <select id="topic" name="topic">
 
         <option>General Inquiry</option>
         <option>Technical Support</option>
@@ -71,13 +71,20 @@
 
     <textarea
         id="message"
+        name="message"
         rows="7"
         placeholder="Write your thoughts here..."
+        required
     ></textarea>
 
-    <button class="feedback-btn">
+    <!-- Honeypot field: hidden from real users, bots often fill it, Formspree drops the submission -->
+    <input type="text" name="_gotcha" style="display:none" tabindex="-1" autocomplete="off">
+
+    <button class="feedback-btn" type="submit">
         Submit Feedback
     </button>
+
+    <p id="formStatus" class="form-status" role="status" aria-live="polite"></p>
 
 </form>
 
@@ -89,5 +96,10 @@
   <span>© Chalsh Guragain · Terhathum, Nepal</span>
 </footer>
 
+<script src="feedback.js"></script>
 </body>
 </html>
+
+
+
+
