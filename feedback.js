@@ -1,4 +1,5 @@
 // Feedback form — AJAX submit to Formspree with inline status message
+
 const feedbackForm = document.getElementById('feedbackForm');
 const formStatus = document.getElementById('formStatus');
 
@@ -21,7 +22,7 @@ if (feedbackForm) {
       });
 
       if (response.ok) {
-        formStatus.textContent = "Thanks! Your message has been sent.";
+        formStatus.textContent = "Thank you for feedback! Your message has been sent. ";
         formStatus.classList.add('success');
         feedbackForm.reset();
       } else {
@@ -33,7 +34,7 @@ if (feedbackForm) {
         formStatus.classList.add('error');
       }
     } catch (err) {
-      formStatus.textContent = "Network error — please check your connection and try again.";
+      formStatus.textContent = "Network error — please check your connection and try again. ";
       formStatus.classList.add('error');
     } finally {
       submitBtn.disabled = false;
