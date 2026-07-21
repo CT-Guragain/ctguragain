@@ -1,29 +1,22 @@
 .feedback-hero{
     position: relative;
-    min-height: 100vh;      /* Full screen */
-    display: flex;
-    align-items: center;
+    min-height: 100vh;
+
+    display:flex;
+    align-items:center;
 
     background:
         linear-gradient(
             rgba(0,0,0,.45),
             rgba(0,0,0,.45)
         ),
-        url("./images/feedback.jpg");
-
-    background-size: cover;
-    background-position: center center;
-    background-repeat: no-repeat;
+        url("./images/feedback.jpg") center center / cover no-repeat;
 }
 
 .feedback-content{
-
     max-width:1180px;
-
     margin:auto;
-
-    padding:140px 40px 80px;
-
+    padding:170px 40px 120px;
     color:white;
 }
 
