@@ -64,13 +64,17 @@
 
     <label for="topic">Topic</label>
 
-    <select id="topic" name="topic">
+    <select id="topic" name="topic" required>
 
-<option value="General Inquiry">General Inquiry</option>
-<option value="Technical Support">Technical Support</option>
-<option value="Website Feedback">Website Feedback</option>
+    <option value="" selected disabled>Select a topic</option>
 
-    </select>
+    <option value="General Inquiry">General Inquiry</option>
+
+    <option value="Technical Support">Technical Support</option>
+
+    <option value="Website Feedback">Website Feedback</option>
+
+</select>
 
     <label for="message">Message</label>
     <input type="hidden" name="_next" value="thankyou.html">
