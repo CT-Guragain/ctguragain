@@ -146,11 +146,32 @@
     font-size:14px;
     min-height:1.2em;
 }
-
 .form-status.success{
     color:var(--moss);
 }
 
 .form-status.error{
     color:#b34747;
+}
+.announcement{
+    width:100%;
+    overflow:hidden;
+    white-space:nowrap;
+    color:#fff;
+    font-weight:bold;
+    padding:12px 0;
+}
+.announcement strong{
+    display:inline-block;
+    padding-left:100%;
+    animation:scrollText 15s linear infinite;
+}
+
+@keyframes scrollText{
+    from{
+        transform:translateX(0);
+    }
+    to{
+        transform:translateX(-200%);
+    }
 }
