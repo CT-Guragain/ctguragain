@@ -2,8 +2,9 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-
-
+    
+<meta name="description" content="Contact and feedback page for the Terhathum tourism website.">
+    
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Support & Feedback — Terhathum</title>
 <link rel="stylesheet" href="styles.css">
@@ -27,7 +28,7 @@
 </nav>
 
     <div class="announcement">
-    <strong>Please provide valuable feedback about the website.</strong>
+    <strong>Please provide your valuable feedback about this website.</strong>
 </div>
     
 <section class="feedback-hero">
@@ -65,13 +66,14 @@
 
     <select id="topic" name="topic">
 
-        <option>General Inquiry</option>
-        <option>Technical Support</option>
-        <option>Website Feedback</option>
+<option value="General Inquiry">General Inquiry</option>
+<option value="Technical Support">Technical Support</option>
+<option value="Website Feedback">Website Feedback</option>
 
     </select>
 
     <label for="message">Message</label>
+    <input type="hidden" name="_next" value="thankyou.html">
 
     <textarea
         id="message"
@@ -97,10 +99,10 @@
 </section>
 
 <footer>
-  <span>© Chalsh Guragain · Terhathum, Nepal</span>
+    <p>&copy; 2026 Chalsh Guragain. All Rights Reserved.</p>
+    <p>Terhathum, Nepal</p>
 </footer>
 
 <script src="feedback.js"></script>
 </body>
 </html>
-
