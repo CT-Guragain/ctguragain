@@ -127,7 +127,6 @@
 
     transition:.3s;
 }
-
 .feedback-btn:hover{
 
     transform:translateY(-2px);
@@ -139,7 +138,6 @@
     cursor:not-allowed;
     transform:none;
 }
-
 .form-status{
     margin-top:16px;
     font-family:var(--body);
@@ -154,16 +152,19 @@
     color:#b34747;
 }
 .announcement{
+    display:block;
     width:100%;
     background:var(--pine);
     color:#fff;
     overflow:hidden;
     white-space:nowrap;
     padding:12px 0;
+    text-align:center;
     border-top:2px solid var(--marigold);
     border-bottom:2px solid var(--marigold);
+    position:relative;
+    z-index:1;
 }
-
 .announcement strong{
     display:inline-block;
     padding-left:100%;
