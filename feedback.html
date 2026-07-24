@@ -22,10 +22,6 @@
     </ul>
 
 </nav>
-
-    <div class="announcement">
-    <strong>Please provide your valuable feedback about this website.</strong>
-</div>
     
 <section class="feedback-hero">
     <div class="feedback-content">
@@ -52,11 +48,23 @@
 
 <form id="feedbackForm" action="https://formspree.io/f/xpqvroop" method="POST">
 
-    <label for="name">Full Name</label>
-    <input type="text" id="name" name="name" placeholder="Your Name" required>
+<label for="name">Full Name</label>
+<input
+    type="text"
+    id="name"
+    name="name"
+    placeholder="Your Name"
+    autocomplete="name"
+    required>
 
-    <label for="email">Email Address</label>
-    <input type="email" id="email" name="email" placeholder="you@example.com" required>
+<label for="email">Email Address</label>
+<input
+    type="email"
+    id="email"
+    name="email"
+    placeholder="you@example.com"
+    autocomplete="email"
+    required>
 
     <label for="topic">Topic</label>
 
@@ -94,7 +102,6 @@
 </form>
 
 </div>
-
 </section>
 
 <footer>
