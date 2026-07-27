@@ -1,0 +1,449 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Two Days East — Chalsh Guragain</title>
+<meta name="description" content="A two-day photo journal through Ilam, Terhathum, Damak and Itahari.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,400;0,600;1,400;1,500&family=Work+Sans:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --pine:#16261C;
+    --pine-deep:#0D1712;
+    --marigold:#E2A73B;
+    --moss:#8A9A78;
+    --paper:#F4EFE3;
+    --ink:#241F17;
+    --line: rgba(244,239,227,0.16);
+    --maxw: 1180px;
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0;
+    background:var(--pine-deep);
+    color:var(--paper);
+    font-family:'Work Sans', sans-serif;
+    font-weight:400;
+    -webkit-font-smoothing:antialiased;
+  }
+  em, .display{font-family:'Fraunces', serif;}
+  .mono{font-family:'JetBrains Mono', monospace; letter-spacing:.04em;}
+
+  a{color:inherit;}
+
+  /* ---------- HERO ---------- */
+  .hero{
+    position:relative;
+    min-height:88vh;
+    display:flex;
+    align-items:flex-end;
+    overflow:hidden;
+  }
+  .hero-img{
+    position:absolute; inset:0;
+    width:100%; height:100%;
+    object-fit:cover;
+    filter:brightness(.55) saturate(1.05);
+  }
+  .hero-overlay{
+    position:relative;
+    z-index:2;
+    padding: 6vh 6vw 8vh;
+    max-width: var(--maxw);
+  }
+  .hero-meta{
+    margin:0 0 1rem;
+    font-size:.72rem;
+    text-transform:uppercase;
+    color:var(--marigold);
+  }
+  .hero-title{
+    font-family:'Fraunces', serif;
+    font-weight:600;
+    font-size:clamp(2.4rem, 6vw, 4.4rem);
+    line-height:1.05;
+    margin:0 0 1rem;
+  }
+  .hero-title em{font-weight:400; font-style:italic; color:var(--moss);}
+  .hero-sub{
+    max-width:38ch;
+    font-size:1rem;
+    line-height:1.6;
+    color:rgba(244,239,227,.82);
+  }
+  .scroll-cue{
+    position:absolute; bottom:2.4rem; left:6vw; z-index:2;
+    font-size:.7rem; color:rgba(244,239,227,.6);
+  }
+
+  /* ---------- LAYOUT ---------- */
+  .journal{
+    max-width: var(--maxw);
+    margin:0 auto;
+    padding: 5rem 6vw 3rem;
+    display:grid;
+    grid-template-columns: 180px 1fr;
+    gap: 3rem;
+  }
+  @media (max-width: 860px){
+    .journal{grid-template-columns:1fr; padding-top:2.5rem;}
+  }
+
+  /* ---------- ROUTE RAIL ---------- */
+  .route-rail{ position:relative; }
+  .route-rail ol{ list-style:none; margin:0; padding:0; position:sticky; top:2.5rem; }
+  .route-rail li{
+    position:relative;
+    padding: 0 0 2.6rem 1.4rem;
+    border-left: 1px solid var(--line);
+    font-family:'JetBrains Mono', monospace;
+    font-size:.72rem;
+    color:rgba(244,239,227,.45);
+    transition: color .3s ease;
+  }
+  .route-rail li:last-child{ border-left-color:transparent; }
+  .route-rail li::before{
+    content:'';
+    position:absolute; left:-4.5px; top:0;
+    width:8px; height:8px; border-radius:50%;
+    background:var(--pine-deep);
+    border:1px solid rgba(244,239,227,.35);
+    transition: all .3s ease;
+  }
+  .route-rail li .stop-index{ display:block; opacity:.6; }
+  .route-rail li .stop-name{
+    display:block;
+    font-family:'Fraunces', serif;
+    font-style:italic;
+    font-size:1rem;
+    color:inherit;
+    margin-top:.15rem;
+  }
+  .route-rail li.active{ color:var(--paper); }
+  .route-rail li.active::before{
+    background:var(--marigold);
+    border-color:var(--marigold);
+    box-shadow:0 0 0 4px rgba(226,167,59,.18);
+  }
+  @media (max-width: 860px){
+    .route-rail ol{
+      position:sticky; top:0; z-index:5;
+      display:flex; gap:1.2rem; overflow-x:auto;
+      background:var(--pine-deep);
+      padding:.9rem 0 1rem;
+      border-bottom:1px solid var(--line);
+    }
+    .route-rail li{ border-left:none; padding:0; white-space:nowrap; }
+    .route-rail li::before{ display:none; }
+  }
+
+  /* ---------- DAY HEADER ---------- */
+  .day-header{
+    display:flex; align-items:baseline; gap:1rem;
+    margin: 3.5rem 0 1.6rem;
+  }
+  .day-header:first-child{ margin-top:0; }
+  .day-header .day-num{
+    font-family:'Fraunces', serif;
+    font-style:italic;
+    font-size:2.6rem;
+    color:var(--marigold);
+  }
+  .day-header .day-label{
+    font-size:.78rem;
+    text-transform:uppercase;
+    letter-spacing:.08em;
+    color:rgba(244,239,227,.55);
+  }
+  .day-rule{ height:1px; background:var(--line); margin-bottom:2.5rem; }
+
+  /* ---------- STOP LABEL (within a day) ---------- */
+  .stop-label{
+    font-family:'JetBrains Mono', monospace;
+    font-size:.72rem;
+    text-transform:uppercase;
+    color:var(--moss);
+  }
+  .entry{
+    transition: opacity .7s ease, transform .7s ease;
+  .frame{
+    border-radius:2px;
+    cursor:zoom-in;
+  }
+  .frame img{
+    aspect-ratio: 4 / 3;
+  }
+  .entry.wide .frame img{ aspect-ratio: 16/9; }
+
+  .caption{
+    display:flex; justify-content:space-between; align-items:flex-end; gap:1rem;
+    padding-top:.9rem;
+  }
+    font-family:'Fraunces', serif;
+    font-style:italic;
+    font-size:1.05rem;
+    color:rgba(244,239,227,.92);
+    max-width:56ch;
+  .caption-meta{
+    font-family:'JetBrains Mono', monospace;
+    color:rgba(244,239,227,.4);
+    white-space:nowrap;
+  }
+
+  /* two-up grid for related shots of one moment */
+  .cluster{
+    display:grid; grid-template-columns:1fr 1fr; gap:.8rem;
+  }
+  @media (max-width:560px){ .cluster{grid-template-columns:1fr;} }
+
+  /* ---------- FOOTER ---------- */
+  footer{
+    max-width:var(--maxw); margin:0 auto; padding: 2rem 6vw 4rem;
+    font-size:.78rem; color:rgba(244,239,227,.4);
+    border-top:1px solid var(--line);
+  }
+
+  /* ---------- LIGHTBOX ---------- */
+  .lightbox{
+    position:fixed; inset:0; background:rgba(13,23,18,.94);
+    display:none; align-items:center; justify-content:center;
+    z-index:50; padding:4vh 4vw;
+  }
+  .lightbox.open{ display:flex; }
+  .lightbox img{ max-width:100%; max-height:100%; box-shadow:0 30px 80px rgba(0,0,0,.5); }
+  .lightbox button{
+    position:absolute; top:1.6rem; right:1.8rem;
+    background:none; border:1px solid var(--line); color:var(--paper);
+    width:2.4rem; height:2.4rem; border-radius:50%; cursor:pointer;
+    font-size:1.1rem;
+  }
+
+  @media (prefers-reduced-motion: reduce){
+    html{scroll-behavior:auto;}
+    .entry{transition:none; opacity:1; transform:none;}
+  }
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <img class="hero-img" src="images/01-ilam-tea-mist-a.jpg" alt="Misty tea garden hills in Ilam">
+  <div class="hero-overlay">
+    <p class="hero-meta mono">Ilam &nbsp;→&nbsp; Terhathum &nbsp;→&nbsp; Damak &nbsp;→&nbsp; Itahari</p>
+    <h1 class="hero-title">Two Days East<br><em>— a trip journal —</em></h1>
+    <p class="hero-sub">TODO: one or two lines setting up the trip — who went, why, what the weather was like. Keep it short; the photos do the talking.</p>
+  </div>
+  <p class="scroll-cue mono">scroll ↓</p>
+</header>
+
+<main class="journal">
+
+  <nav class="route-rail" aria-label="Trip route">
+    <ol id="routeList"><!-- populated by JS --></ol>
+  </nav>
+
+  <div class="entries" id="entries"><!-- populated by JS --></div>
+
+</main>
+
+<footer>
+  <p>Two days, four stops, eastern Nepal. — chalshguragain.com.np</p>
+</footer>
+
+<div class="lightbox" id="lightbox">
+  <button id="lightboxClose" aria-label="Close">×</button>
+  <img id="lightboxImg" src="" alt="">
+</div>
+
+<script>
+/* ============================================================
+   1. THE ROUTE — the ordered stops of the trip.
+      Edit label / sub freely. Order here = order of the rail.
+   ============================================================ */
+const STOPS = [
+  { id:'ilam',      label:'Ilam',      sub:'Ilam District' },
+  { id:'terhathum', label:'Terhathum', sub:'Eastern Hills' },
+  { id:'damak',      label:'Damak',     sub:'Jhapa' },
+  { id:'itahari',    label:'Itahari',   sub:'Sunsari' },
+];
+
+/* ============================================================
+   2. THE PHOTOS — one object per image (or small cluster).
+      - day: 1 or 2
+      - stop: must match a STOPS id above
+      - src: path under /images
+      - alt: plain description (accessibility + SEO)
+      - caption: the journal line — replace every TODO
+      - wide: true for 16:9 landscape treatment (optional)
+   ============================================================ */
+const TRIP = [
+  // ---------------- DAY 1 ----------------
+  { day:1, stop:'ilam', cluster:[
+      { src:'images/01-ilam-tea-mist-a.jpg', alt:'Rows of tea bushes climbing a misty hillside in Ilam' },
+      { src:'images/01-ilam-tea-mist-b.jpg', alt:'Tea garden hill under grey monsoon sky, Ilam' },
+    ],
+    caption:'TODO — the fog rolling over the tea rows, how it smelled, what time you got there.',
+    meta:'Ilam · day 1' },
+
+  { day:1, stop:'ilam', src:'images/01-ilam-tea-mist-c.jpg',
+    alt:'A small shelter at the edge of a foggy tea plantation in Ilam',
+    caption:'TODO — one detail from this exact spot.',
+    meta:'Ilam · day 1' },
+
+  { day:1, stop:'terhathum', src:'images/02-terhathum-flowers-dusk.jpg', wide:true,
+    alt:'Marigold-orange flowers in the foreground with blue hills at dusk, Terhathum',
+    caption:'TODO — arriving in Terhathum, the light going blue, whatever flower this is.',
+    meta:'Terhathum · day 1' },
+
+  { day:1, stop:'terhathum', cluster:[
+      { src:'images/03-terhathum-evening-sky-a.jpg', alt:'Dusk sky over layered hills in Terhathum' },
+      { src:'images/03-terhathum-evening-sky-b.jpg', alt:'Clear evening sky over terraced hills, Terhathum' },
+    ],
+    caption:'TODO — what the evening felt like up there.',
+    meta:'Terhathum · day 1' },
+
+  // ---------------- DAY 2 ----------------
+  { day:2, stop:'terhathum', src:'images/04-terhathum-sunrise.jpg', wide:true,
+    alt:'Sunrise breaking over a forested ridge in Terhathum',
+    caption:'TODO — waking up early for this one. Worth it?',
+    meta:'Terhathum · day 2 · sunrise' },
+
+  { day:2, stop:'damak', src:'images/05-damak-sunrise.jpg',
+    alt:'Hazy sunrise over rooftops in Damak, Jhapa',
+    caption:'TODO — the drive down, the air getting thicker and warmer.',
+    meta:'Damak, Jhapa · day 2 · sunrise' },
+
+  { day:2, stop:'itahari', src:'images/06-itahari-dusk-sky.jpg',
+    alt:'Evening sky over Itahari, Sunsari',
+    caption:'TODO — last light before heading back.',
+    meta:'Itahari, Sunsari · day 2' },
+
+  { day:2, stop:'itahari', src:'images/07-itahari-road-traffic.jpg', wide:true,
+    alt:'Busy street with motorbikes and buses under a bright cloudy sky in Itahari',
+    caption:'TODO — back into traffic, back to normal.',
+    meta:'Itahari, Sunsari · day 2' },
+];
+
+/* ============================================================
+   RENDER — you shouldn't need to touch anything below this
+   line unless you're changing how the page behaves.
+   ============================================================ */
+const entriesEl = document.getElementById('entries');
+const routeListEl = document.getElementById('routeList');
+
+// Build the route rail
+STOPS.forEach((s, i) => {
+  const li = document.createElement('li');
+  li.dataset.stop = s.id;
+  li.innerHTML = `<span class="stop-index mono">${String(i+1).padStart(2,'0')} · ${s.sub}</span><span class="stop-name">${s.label}</span>`;
+  routeListEl.appendChild(li);
+});
+
+// Build entries, grouped by day, with stop sub-labels when the stop changes
+let lastDay = null, lastStop = null;
+TRIP.forEach(item => {
+  if (item.day !== lastDay) {
+    const dh = document.createElement('div');
+    dh.innerHTML = `
+      <div class="day-header">
+        <span class="day-num">${String(item.day).padStart(2,'0')}</span>
+        <span class="day-label mono">Day ${item.day}</span>
+      </div>
+      <div class="day-rule"></div>`;
+    entriesEl.appendChild(dh);
+    lastDay = item.day;
+    lastStop = null;
+  }
+  if (item.stop !== lastStop) {
+    const stopMeta = STOPS.find(s => s.id === item.stop);
+    const sl = document.createElement('p');
+    sl.className = 'stop-label';
+    sl.dataset.stopMarker = item.stop;
+    sl.textContent = stopMeta ? `${stopMeta.label} — ${stopMeta.sub}` : item.stop;
+    entriesEl.appendChild(sl);
+    lastStop = item.stop;
+  }
+
+  const entry = document.createElement('article');
+  entry.className = 'entry' + (item.wide ? ' wide' : '');
+  entry.dataset.stop = item.stop;
+
+  let mediaHTML = '';
+  if (item.cluster) {
+    mediaHTML = `<div class="cluster">${item.cluster.map(c =>
+      `<div class="frame"><img src="${c.src}" alt="${c.alt}" loading="lazy"></div>`
+    ).join('')}</div>`;
+  } else {
+    mediaHTML = `<div class="frame"><img src="${item.src}" alt="${item.alt}" loading="lazy"></div>`;
+  }
+
+  entry.innerHTML = `
+    ${mediaHTML}
+    <div class="caption">
+      <p class="caption-text">${item.caption}</p>
+      <p class="caption-meta">${item.meta}</p>
+    </div>`;
+  entriesEl.appendChild(entry);
+});
+
+// Scroll-reveal for entries
+const revealObserver = new IntersectionObserver((entries) => {
+  entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('is-visible'); });
+}, { threshold: 0.15 });
+document.querySelectorAll('.entry').forEach(el => revealObserver.observe(el));
+
+// Highlight active stop in the route rail as you scroll
+const railItems = [...routeListEl.querySelectorAll('li')];
+const stopObserver = new IntersectionObserver((entries) => {
+  entries.forEach(e => {
+    if (e.isIntersecting) {
+      const stopId = e.target.dataset.stop;
+      railItems.forEach(li => li.classList.toggle('active', li.dataset.stop === stopId));
+    }
+  });
+}, { rootMargin: '-40% 0px -50% 0px', threshold: 0 });
+document.querySelectorAll('.entry').forEach(el => stopObserver.observe(el));
+
+// Lightbox
+const lightbox = document.getElementById('lightbox');
+const lightboxImg = document.getElementById('lightboxImg');
+document.addEventListener('click', (e) => {
+  const img = e.target.closest('.frame img');
+  if (img) {
+    lightboxImg.src = img.src;
+    lightboxImg.alt = img.alt;
+    lightbox.classList.add('open');
+  }
+});
+document.getElementById('lightboxClose').addEventListener('click', () => lightbox.classList.remove('open'));
+lightbox.addEventListener('click', (e) => { if (e.target === lightbox) lightbox.classList.remove('open'); });
+document.addEventListener('keydown', (e) => { if (e.key === 'Escape') lightbox.classList.remove('open'); });
+</script>
+
+</body>
+</html>    text-align:right;
+    font-size:.68rem;
+  }
+    line-height:1.5;
+  .caption-text{
+    border-top:1px solid var(--line);
+    margin-top:.9rem;
+    object-fit:cover;
+    width:100%; display:block;
+    overflow:hidden;
+    background:var(--pine);
+    position:relative;
+  .entry.is-visible{ opacity:1; transform:translateY(0); }
+
+  }
+    margin-bottom: 3.2rem;
+    opacity:0; transform:translateY(24px);
+
+  /* ---------- ENTRY / PHOTO CARD ---------- */
+    content:''; width:1.4rem; height:1px; background:var(--moss);
+    margin: 0 0 1rem;
+  .stop-label::before{
+
