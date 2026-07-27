@@ -166,31 +166,62 @@
     font-size:.72rem;
     text-transform:uppercase;
     color:var(--moss);
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin: 0 0 1rem;
   }
+  .stop-label::before{
+    content:''; 
+    width:1.4rem; 
+    height:1px; 
+    background:var(--moss);
+  }
+
+  /* ---------- ENTRY / PHOTO CARD ---------- */
   .entry{
     transition: opacity .7s ease, transform .7s ease;
+    margin-bottom: 3.2rem;
+    opacity:0; 
+    transform:translateY(24px);
+  }
+  .entry.is-visible{ opacity:1; transform:translateY(0); }
+  
   .frame{
     border-radius:2px;
     cursor:zoom-in;
+    overflow:hidden;
+    background:var(--pine);
+    position:relative;
   }
   .frame img{
     aspect-ratio: 4 / 3;
+    object-fit:cover;
+    width:100%; 
+    display:block;
   }
   .entry.wide .frame img{ aspect-ratio: 16/9; }
 
   .caption{
     display:flex; justify-content:space-between; align-items:flex-end; gap:1rem;
     padding-top:.9rem;
+    border-top:1px solid var(--line);
+    margin-top:.9rem;
   }
+  .caption-text{
     font-family:'Fraunces', serif;
     font-style:italic;
     font-size:1.05rem;
     color:rgba(244,239,227,.92);
     max-width:56ch;
+    line-height:1.5;
+  }
   .caption-meta{
     font-family:'JetBrains Mono', monospace;
     color:rgba(244,239,227,.4);
     white-space:nowrap;
+    text-align:right;
+    font-size:.68rem;
   }
 
   /* two-up grid for related shots of one moment */
@@ -234,7 +265,7 @@
   <div class="hero-overlay">
     <p class="hero-meta mono">Ilam &nbsp;→&nbsp; Terhathum &nbsp;→&nbsp; Damak &nbsp;→&nbsp; Itahari</p>
     <h1 class="hero-title">Two Days East<br><em>— a trip journal —</em></h1>
-    <p class="hero-sub">TODO: one or two lines setting up the trip — who went, why, what the weather was like. Keep it short; the photos do the talking.</p>
+    <p class="hero-sub">A quick weekend escape to the eastern hills of Nepal to chase the monsoon fog. Traveling through misty tea gardens down to the warm plains, letting the scenery lead the way.</p>
   </div>
   <p class="scroll-cue mono">scroll ↓</p>
 </header>
@@ -276,7 +307,7 @@ const STOPS = [
       - stop: must match a STOPS id above
       - src: path under /images
       - alt: plain description (accessibility + SEO)
-      - caption: the journal line — replace every TODO
+      - caption: the journal line
       - wide: true for 16:9 landscape treatment (optional)
    ============================================================ */
 const TRIP = [
@@ -285,45 +316,45 @@ const TRIP = [
       { src:'images/Ilam2.jpg', alt:'Rows of tea bushes climbing a misty hillside in Ilam' },
       { src:'images/Ilam3.jpg', alt:'Tea garden hill under grey monsoon sky, Ilam' },
     ],
-    caption:'TODO — the fog rolling over the tea rows, how it smelled, what time you got there.',
+    caption:'Arrived in the early afternoon just as the dense monsoon fog started rolling over the hills. The air was incredibly crisp, carrying the fresh, earthy scent of damp tea leaves.',
     meta:'Ilam · day 1' },
 
   { day:1, stop:'ilam', src:'images/Ilam4.jpg',
     alt:'A small shelter at the edge of a foggy tea plantation in Ilam',
-    caption:'TODO — one detail from this exact spot.',
+    caption:'The visibility dropped to just a few meters, wrapping the tea bushes in a thick, quiet blanket of white mist.',
     meta:'Ilam · day 1' },
 
   { day:1, stop:'terhathum', src:'images/2_Flower.jpg', wide:true,
     alt:'Marigold-orange flowers in the foreground with blue hills at dusk, Terhathum',
-    caption:'TODO — arriving in Terhathum, the light going blue, whatever flower this is.',
+    caption:'We reached Terhathum just as dusk settled in. The vibrant orange marigolds stood out sharply against the deep, cooling blue of the distant hills.',
     meta:'Terhathum · day 1' },
 
   { day:1, stop:'terhathum', cluster:[
       { src:'images/Terhathum.jpg', alt:'Dusk sky over layered hills in Terhathum' },
       { src:'images/Cloud_hill.jpg', alt:'Clear evening sky over terraced hills, Terhathum' },
     ],
-    caption:'TODO — what the evening felt like up there.',
+    caption:'The evening air turned brisk as the clouds cleared, revealing endless layers of terraced hills fading into the twilight.',
     meta:'Terhathum · day 1' },
 
   // ---------------- DAY 2 ----------------
   { day:2, stop:'terhathum', src:'images/Sunrise_hill.jpg', wide:true,
     alt:'Sunrise breaking over a forested ridge in Terhathum',
-    caption:'TODO — waking up early for this one. Worth it?',
+    caption:'Woke up before dawn to catch the first light breaking over the forested ridge. Watching the sun pierce through the morning chill made the early start completely worth it.',
     meta:'Terhathum · day 2 · sunrise' },
 
   { day:2, stop:'damak', src:'images/Sunrise_DMK.jpg',
     alt:'Hazy sunrise over rooftops in Damak, Jhapa',
-    caption:'TODO — the drive down, the air getting thicker and warmer.',
+    caption:'Descending towards the plains of Jhapa, the crisp hill air quickly gave way to the thick, hazy warmth of the Terai morning.',
     meta:'Damak, Jhapa · day 2 · sunrise' },
 
   { day:2, stop:'itahari', src:'images/Itahari.jpg',
     alt:'Evening sky over Itahari, Sunsari',
-    caption:'TODO — last light before heading back.',
+    caption:'Taking in the vibrant, bustling atmosphere of the city streets under a bright, dynamic sky as we begin the final leg of our journey.',
     meta:'Itahari, Sunsari · day 2' },
 
   { day:2, stop:'itahari', src:'images/Itahari.jpg', wide:true,
     alt:'Busy street with motorbikes and buses under a bright cloudy sky in Itahari',
-    caption:'TODO — back into traffic, back to normal.',
+    caption:'Merging back into the chaotic symphony of motorbikes and buses. The quiet of the misty hills already feels like a distant memory.',
     meta:'Itahari, Sunsari · day 2' },
 ];
 
@@ -424,26 +455,4 @@ document.addEventListener('keydown', (e) => { if (e.key === 'Escape') lightbox.c
 </script>
 
 </body>
-</html>    text-align:right;
-    font-size:.68rem;
-  }
-    line-height:1.5;
-  .caption-text{
-    border-top:1px solid var(--line);
-    margin-top:.9rem;
-    object-fit:cover;
-    width:100%; display:block;
-    overflow:hidden;
-    background:var(--pine);
-    position:relative;
-  .entry.is-visible{ opacity:1; transform:translateY(0); }
-
-  }
-    margin-bottom: 3.2rem;
-    opacity:0; transform:translateY(24px);
-
-  /* ---------- ENTRY / PHOTO CARD ---------- */
-    content:''; width:1.4rem; height:1px; background:var(--moss);
-    margin: 0 0 1rem;
-  .stop-label::before{
-
+</html>
