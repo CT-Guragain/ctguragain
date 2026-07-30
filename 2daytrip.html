@@ -441,23 +441,6 @@ document.addEventListener('keydown', (e) => {
     if (e.key === 'Escape')
         lightbox.classList.remove('open');
 });
-// Automatically detect portrait and landscape images
-document.querySelectorAll('.frame img').forEach(img => {
-    function updateImageClass() {
-        img.classList.remove('portrait', 'landscape');
-
-        if (img.naturalHeight > img.naturalWidth) {
-            img.classList.add('portrait');
-        } else {
-            img.classList.add('landscape');
-        }
-    }
-    if (img.complete) {
-        updateImageClass();
-    } else {
-        img.onload = updateImageClass;
-    }
-});
 </script>
 
 </body>
