@@ -193,40 +193,20 @@
     top/bottom/sides the way object-fit:cover was doing to portrait shots.
     The pine background fills any empty letterbox space.
   */
-  .frame{
+.frame{
     border-radius:2px;
     cursor:zoom-in;
     overflow:hidden;
     background:var(--pine);
     position:relative;
     width:100%;
-    height:520px;
-    display:flex;
-    align-items:center;
-    justify-content:center;
-  }
+}
+
 .frame img{
     width:100%;
-    height:100%;
+    height:auto;
     display:block;
 }
-
-/* Landscape images */
-.frame img.landscape{
-    object-fit:cover;
-}
-
-/* Portrait images */
-.frame img.portrait{
-    object-fit:contain;
-    background:var(--pine);
-}
-  .entry.wide .frame{ height:600px; }
-
-  @media (max-width:640px){
-    .frame{ height:400px; }
-    .entry.wide .frame{ height:440px; }
-  }
 
   .caption{
     display:flex; justify-content:space-between; align-items:flex-end; gap:1rem;
