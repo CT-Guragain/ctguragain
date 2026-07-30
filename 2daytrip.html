@@ -373,11 +373,6 @@ const TRIP = [
     caption:'Merged back into the noise of the road — motorbikes, buses, the city humming again. The trip ended here.',
     meta:'Itahari, Sunsari · day 2' },
 ];
-
-/* ============================================================
-   RENDER — you shouldn't need to touch anything below this
-   line unless you're changing how the page behaves.
-   ============================================================ */
 const entriesEl = document.getElementById('entries');
 const routeListEl = document.getElementById('routeList');
 
@@ -435,8 +430,6 @@ TRIP.forEach(item => {
     </div>`;
   entriesEl.appendChild(entry);
 });
-
-// Scroll-reveal for entries
 const revealObserver = new IntersectionObserver((entries) => {
   entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('is-visible'); });
 }, { threshold: 0.15 });
