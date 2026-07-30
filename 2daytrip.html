@@ -205,12 +205,22 @@
     align-items:center;
     justify-content:center;
   }
-  .frame img{
+.frame img{
     width:100%;
     height:100%;
-    object-fit:contain;
     display:block;
-  }
+}
+
+/* Landscape images */
+.frame img.landscape{
+    object-fit:cover;
+}
+
+/* Portrait images */
+.frame img.portrait{
+    object-fit:contain;
+    background:var(--pine);
+}
   .entry.wide .frame{ height:600px; }
 
   @media (max-width:640px){
@@ -461,6 +471,31 @@ document.addEventListener('click', (e) => {
 document.getElementById('lightboxClose').addEventListener('click', () => lightbox.classList.remove('open'));
 lightbox.addEventListener('click', (e) => { if (e.target === lightbox) lightbox.classList.remove('open'); });
 document.addEventListener('keydown', (e) => { if (e.key === 'Escape') lightbox.classList.remove('open'); });
+document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape')
+        lightbox.classList.remove('open');
+});
+// Automatically detect portrait and landscape images
+document.querySelectorAll('.frame img').forEach(img => {
+
+    function updateImageClass() {
+
+        img.classList.remove('portrait', 'landscape');
+
+        if (img.naturalHeight > img.naturalWidth) {
+            img.classList.add('portrait');
+        } else {
+            img.classList.add('landscape');
+        }
+    }
+
+    if (img.complete) {
+        updateImageClass();
+    } else {
+        img.onload = updateImageClass;
+    }
+
+});
 </script>
 
 </body>
