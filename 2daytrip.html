@@ -326,16 +326,6 @@ const STOPS = [
   { id:'damak',     label:'Damak',     sub:'Jhapa' },
   { id:'itahari',   label:'Itahari',   sub:'Sunsari' },
 ];
-
-/* ============================================================
-   2. THE PHOTOS — one object per image (or small cluster).
-      - day: 1 or 2
-      - stop: must match a STOPS id above
-      - src: path under /images
-      - alt: plain description (accessibility + SEO)
-      - caption: the journal line
-      - wide: true for a full-width treatment (optional)
-   ============================================================ */
 const TRIP = [
   // ---------------- DAY 1 : Terhathum → Ilam ----------------
   { day:1, stop:'terhathum', src:'images/Sunrise_hill.jpg', wide:true,
@@ -344,7 +334,6 @@ const TRIP = [
     meta:'Terhathum · day 1 · sunrise' },
 
   { day:1, stop:'terhathum', cluster:[
-      /*{ src:'images/Ilam2.jpg', alt:'Wonderful picture of beutiful green tea garden' },*/
       { src:'images/Cloud_hill.jpg', wide:true, alt:'Clear sky over terraced hills and a distant village, Terhathum' },
     ],
     caption:'The light kept shifting as the morning went on — the haze burning off a little more with every passing minute.',
@@ -422,7 +411,6 @@ TRIP.forEach(item => {
   const entry = document.createElement('article');
   entry.className = 'entry' + (item.wide ? ' wide' : '');
   entry.dataset.stop = item.stop;
-
   let mediaHTML = '';
   if (item.cluster) {
     mediaHTML = `<div class="cluster">${item.cluster.map(c =>
@@ -431,7 +419,6 @@ TRIP.forEach(item => {
   } else {
     mediaHTML = `<div class="frame"><img src="${item.src}" alt="${item.alt}" loading="lazy"></div>`;
   }
-
   entry.innerHTML = `
     ${mediaHTML}
     <div class="caption">
@@ -444,7 +431,6 @@ const revealObserver = new IntersectionObserver((entries) => {
   entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('is-visible'); });
 }, { threshold: 0.15 });
 document.querySelectorAll('.entry').forEach(el => revealObserver.observe(el));
-
 // Highlight active stop in the route rail as you scroll
 const railItems = [...routeListEl.querySelectorAll('li')];
 const stopObserver = new IntersectionObserver((entries) => {
@@ -477,9 +463,7 @@ document.addEventListener('keydown', (e) => {
 });
 // Automatically detect portrait and landscape images
 document.querySelectorAll('.frame img').forEach(img => {
-
     function updateImageClass() {
-
         img.classList.remove('portrait', 'landscape');
 
         if (img.naturalHeight > img.naturalWidth) {
@@ -488,13 +472,11 @@ document.querySelectorAll('.frame img').forEach(img => {
             img.classList.add('landscape');
         }
     }
-
     if (img.complete) {
         updateImageClass();
     } else {
         img.onload = updateImageClass;
     }
-
 });
 </script>
 
