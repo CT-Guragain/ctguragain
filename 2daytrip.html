@@ -8,6 +8,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,400;0,600;1,400;1,500&family=Work+Sans:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+
 <style>
   :root{
     --pine:#16261C;
@@ -29,6 +30,7 @@
     font-weight:400;
     -webkit-font-smoothing:antialiased;
   }
+  
   em, .display{font-family:'Fraunces', serif;}
   .mono{font-family:'JetBrains Mono', monospace; letter-spacing:.04em;}
 
@@ -301,6 +303,7 @@
    1. THE ROUTE — the ordered stops of the trip.
       Edit label / sub freely. Order here = order of the rail.
    ============================================================ */
+  
 const STOPS = [
   { id:'terhathum', label:'Terhathum', sub:'Eastern Hills' },
   { id:'ilam',      label:'Ilam',      sub:'Ilam District' },
@@ -309,11 +312,6 @@ const STOPS = [
 ];
 const TRIP = [
   // ---------------- DAY 1 : Terhathum → Ilam ----------------
-  {day:1, stop:'terhathum', src:'images/Heavenly.jpg', wide:true,
-   alt:'Before the sunrise picture of terhathum',
-   caption:'Before the sunrise Last day rain got this heavenly looks, wonderful looking picture unexplainable what eye's sees',
-   meta:'Terhathum . day1 . dusk'},
-  
   { day:1, stop:'terhathum', src:'images/Sunrise_hill.jpg', wide:true,
     alt:'Sunrise breaking over a forested ridge in Terhathum',
     caption:'Woke up before dawn to catch the first light breaking over the ridge. Watching the sun come up over the hills was the best possible way to start the trip.',
@@ -410,6 +408,7 @@ TRIP.forEach(item => {
     entriesEl.appendChild(sl);
     lastStop = item.stop;
   }
+  
   const entry = document.createElement('article');
   entry.className = 'entry' + (item.wide ? ' wide' : '');
   entry.dataset.stop = item.stop;
@@ -452,7 +451,8 @@ const stopObserver = new IntersectionObserver((entries) => {
       railItems.forEach(li => li.classList.toggle('active', li.dataset.stop === stopId));
     }
   });
-}, { rootMargin: '-40% 0px -50% 0px', threshold: 0 });
+}, 
+{ rootMargin: '-40% 0px -50% 0px', threshold: 0 });
 document.querySelectorAll('.entry').forEach(el => stopObserver.observe(el));
 
 // Lightbox (images only — video clicks are left alone so the player controls work)
@@ -466,6 +466,7 @@ document.addEventListener('click', (e) => {
     lightbox.classList.add('open');
   }
 });
+
 document.getElementById('lightboxClose').addEventListener('click', () => lightbox.classList.remove('open'));
 lightbox.addEventListener('click', (e) => { if (e.target === lightbox) lightbox.classList.remove('open'); });
 document.addEventListener('keydown', (e) => { if (e.key === 'Escape') lightbox.classList.remove('open'); });
