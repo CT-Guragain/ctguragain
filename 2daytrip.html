@@ -202,7 +202,8 @@
     width:100%;
 }
 
-.frame img{
+.frame img,
+.frame video{
     width:100%;
     height:auto;
     display:block;
@@ -267,7 +268,7 @@
 <body>
 
 <header class="hero">
-  <img class="hero-img" src="images/2_Flower.jpg" alt="Sunrise breaking over the ridge in Terhathum">
+  <img class="hero-img" src="images/City_Hill.jpg" alt="Sunrise breaking over the ridge in Terhathum">
   <div class="hero-overlay">
     <p class="hero-meta mono">Terhathum &nbsp;→&nbsp; Ilam &nbsp;→&nbsp; Damak &nbsp;→&nbsp; Itahari</p>
     <h1 class="hero-title">Two Days East<br><em>— a trip journal —</em></h1>
@@ -308,6 +309,11 @@ const STOPS = [
 ];
 const TRIP = [
   // ---------------- DAY 1 : Terhathum → Ilam ----------------
+  {day:1, stop:'terhathum', src:'images/Heavenly.jpg', wide:true,
+   alt:'Before the sunrise picture of terhathum',
+   caption:'Before the sunrise Last day rain got this heavenly looks, wonderful looking picture unexplainable what eye's sees',
+   meta:'Terhathum . day1 . dusk'},
+  
   { day:1, stop:'terhathum', src:'images/Sunrise_hill.jpg', wide:true,
     alt:'Sunrise breaking over a forested ridge in Terhathum',
     caption:'Woke up before dawn to catch the first light breaking over the ridge. Watching the sun come up over the hills was the best possible way to start the trip.',
@@ -341,6 +347,13 @@ const TRIP = [
     caption:'Back out again the next morning — visibility dropped to a few meters, the whole plantation wrapped in a quiet blanket of white.',
     meta:'Ilam · day 2' },
 
+   { day:2, stop:'ilam', cluster:[
+    { src:'videos/Video_tea.mp4', type:'video', alt:'Pouring tea, clip one' },
+    { src:'videos/Video_tea2.mp4', type:'video', alt:'Pouring tea, clip two' },
+  ],
+  caption:'A quick clip of tea being poured — the smell alone was worth the detour.',
+  meta:'Ilam · day 2 · video' },
+  
   { day:2, stop:'damak', src:'images/Sunrise_DMK.jpg',
     alt:'Hazy sunrise over rooftops in Damak, Jhapa',
     caption:'Dropped down out of the hills towards the plains, and stopped for a while in Damak as the haze turned the low sun a deep orange.',
@@ -351,6 +364,7 @@ const TRIP = [
     caption:'Merged back into the noise of the road — motorbikes, buses, the city humming again. The trip ended here.',
     meta:'Itahari, Sunsari · day 2' },
 ];
+  
 const entriesEl = document.getElementById('entries');
 const routeListEl = document.getElementById('routeList');
 
@@ -361,6 +375,16 @@ STOPS.forEach((s, i) => {
   li.innerHTML = `<span class="stop-index mono">${String(i+1).padStart(2,'0')} · ${s.sub}</span><span class="stop-name">${s.label}</span>`;
   routeListEl.appendChild(li);
 });
+
+// Turns one TRIP item (or one cluster entry) into an <img> or <video> tag.
+// No autoplay attribute here — play/pause is handled by revealObserver below,
+// so a video only starts once it's actually scrolled into view.
+function mediaTag(item){
+  if (item.type === 'video') {
+    return `<video src="${item.src}" muted loop playsinline controls preload="metadata"></video>`;
+  }
+  return `<img src="${item.src}" alt="${item.alt || ''}" loading="lazy">`;
+}
 
 // Build entries, grouped by day, with stop sub-labels when the stop changes
 let lastDay = null, lastStop = null;
@@ -386,17 +410,16 @@ TRIP.forEach(item => {
     entriesEl.appendChild(sl);
     lastStop = item.stop;
   }
-
   const entry = document.createElement('article');
   entry.className = 'entry' + (item.wide ? ' wide' : '');
   entry.dataset.stop = item.stop;
   let mediaHTML = '';
   if (item.cluster) {
     mediaHTML = `<div class="cluster">${item.cluster.map(c =>
-      `<div class="frame"><img src="${c.src}" alt="${c.alt}" loading="lazy"></div>`
+      `<div class="frame">${mediaTag(c)}</div>`
     ).join('')}</div>`;
   } else {
-    mediaHTML = `<div class="frame"><img src="${item.src}" alt="${item.alt}" loading="lazy"></div>`;
+    mediaHTML = `<div class="frame">${mediaTag(item)}</div>`;
   }
   entry.innerHTML = `
     ${mediaHTML}
@@ -406,10 +429,20 @@ TRIP.forEach(item => {
     </div>`;
   entriesEl.appendChild(entry);
 });
+
+// Reveal-on-scroll + play/pause any video inside the entry as it enters/leaves view
 const revealObserver = new IntersectionObserver((entries) => {
-  entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('is-visible'); });
+  entries.forEach(e => {
+    if (e.isIntersecting) {
+      e.target.classList.add('is-visible');
+      e.target.querySelectorAll('video').forEach(v => v.play().catch(() => {}));
+    } else {
+      e.target.querySelectorAll('video').forEach(v => v.pause());
+    }
+  });
 }, { threshold: 0.15 });
 document.querySelectorAll('.entry').forEach(el => revealObserver.observe(el));
+
 // Highlight active stop in the route rail as you scroll
 const railItems = [...routeListEl.querySelectorAll('li')];
 const stopObserver = new IntersectionObserver((entries) => {
@@ -422,7 +455,7 @@ const stopObserver = new IntersectionObserver((entries) => {
 }, { rootMargin: '-40% 0px -50% 0px', threshold: 0 });
 document.querySelectorAll('.entry').forEach(el => stopObserver.observe(el));
 
-// Lightbox
+// Lightbox (images only — video clicks are left alone so the player controls work)
 const lightbox = document.getElementById('lightbox');
 const lightboxImg = document.getElementById('lightboxImg');
 document.addEventListener('click', (e) => {
@@ -436,11 +469,6 @@ document.addEventListener('click', (e) => {
 document.getElementById('lightboxClose').addEventListener('click', () => lightbox.classList.remove('open'));
 lightbox.addEventListener('click', (e) => { if (e.target === lightbox) lightbox.classList.remove('open'); });
 document.addEventListener('keydown', (e) => { if (e.key === 'Escape') lightbox.classList.remove('open'); });
-document.addEventListener('keydown', (e) => {
-    if (e.key === 'Escape')
-        lightbox.classList.remove('open');
-});
 </script>
-
 </body>
 </html>
