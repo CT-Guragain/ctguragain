@@ -182,13 +182,6 @@
     transform:translateY(24px);
   }
   .entry.is-visible{ opacity:1; transform:translateY(0); }
-
-  /*
-    FRAME: fixed % width + capped px height, image uses object-fit:contain
-    so the whole photo is always visible - nothing gets cropped off the
-    top/bottom/sides the way object-fit:cover was doing to portrait shots.
-    The pine background fills any empty letterbox space.
-  */
 .frame{
     border-radius:2px;
     cursor:zoom-in;
@@ -365,9 +358,6 @@ STOPS.forEach((s, i) => {
   routeListEl.appendChild(li);
 });
 
-// Turns one TRIP item (or one cluster entry) into an <img> or <video> tag.
-// No autoplay attribute here - play/pause is handled by revealObserver below,
-// so a video only starts once it's actually scrolled into view.
 function mediaTag(item){
   if (item.type === 'video') {
     return `<video src="${item.src}" muted loop playsinline controls preload="metadata"></video>`;
@@ -420,6 +410,7 @@ TRIP.forEach(item => {
   entriesEl.appendChild(entry);
 });
 
+  
 // Reveal-on-scroll + play/pause any video inside the entry as it enters/leaves view
 const revealObserver = new IntersectionObserver((entries) => {
   entries.forEach(e => {
