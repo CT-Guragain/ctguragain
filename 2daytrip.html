@@ -156,7 +156,6 @@
   }
   .day-rule{ height:1px; background:var(--line); margin-bottom:2.5rem; }
 
-  /* ---------- STOP LABEL (within a day) ---------- */
   .stop-label{
     font-family:'JetBrains Mono', monospace;
     font-size:.72rem;
@@ -174,7 +173,6 @@
     background:var(--moss);
   }
 
-  /* ---------- ENTRY / PHOTO CARD ---------- */
   .entry{
     transition: opacity .7s ease, transform .7s ease;
     margin-bottom: 3.2rem;
@@ -220,20 +218,17 @@
     font-size:.68rem;
   }
 
-  /* two-up grid for related shots of one moment */
   .cluster{
     display:grid; grid-template-columns:1fr 1fr; gap:.8rem;
   }
   @media (max-width:560px){ .cluster{grid-template-columns:1fr;} }
 
-  /* ---------- FOOTER ---------- */
   footer{
     max-width:var(--maxw); margin:0 auto; padding: 2rem 6vw 4rem;
     font-size:.78rem; color:rgba(244,239,227,.4);
     border-top:1px solid var(--line);
   }
 
-  /* ---------- LIGHTBOX ---------- */
   .lightbox{
     position:fixed; inset:0; background:rgba(13,23,18,.94);
     display:none; align-items:center; justify-content:center;
@@ -286,11 +281,6 @@
 </div>
 
 <script>
-/* ============================================================
-   1. THE ROUTE - the ordered stops of the trip.
-      Edit label / sub freely. Order here = order of the rail.
-   ============================================================ */
-  
 const STOPS = [
   { id:'terhathum', label:'Terhathum', sub:'Eastern Hills' },
   { id:'ilam',      label:'Ilam',      sub:'Ilam District' },
@@ -332,9 +322,9 @@ const TRIP = [
     caption:'Back out again the next morning - visibility dropped to a few meters, the whole plantation wrapped in a quiet blanket of white.',
     meta:'Ilam · day 2' },
 
-   { day:2, stop:'ilam', src:'videos/Video_tea2.mp4', type:'video', alt:'Wonderful garden, clip one',
+   /*{ day:2, stop:'ilam', src:'videos/Video_tea2.mp4', type:'video', alt:'Wonderful garden, clip one',
   caption:'A quick clip of tea garden - how it looks from near.',
-  meta:'Ilam · day 2 · video' },
+  meta:'Ilam · day 2 · video' },*/
   
   { day:2, stop:'damak', src:'images/Sunrise_DMK.jpg',
     alt:'Hazy sunrise over rooftops in Damak, Jhapa',
