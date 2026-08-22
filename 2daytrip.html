@@ -9,6 +9,14 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,400;0,600;1,400;1,500&family=Work+Sans:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 
+<nav class="site-nav" id="siteNav">
+  <a class="brand" href="#top">Terhathum</a>
+  <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation" aria-expanded="false" aria-controls="navLinks">☰</button>
+  <ul id="navLinks">
+    <li><a href="index.html"><strong>Home</strong></a></li>
+  </ul>
+</nav>
+  
 <style>
   :root{
     --pine:#16261C;
@@ -355,7 +363,6 @@ function mediaTag(item){
   return `<img src="${item.src}" alt="${item.alt || ''}" loading="lazy">`;
 }
 
-// Build entries, grouped by day, with stop sub-labels when the stop changes
 let lastDay = null, lastStop = null;
 TRIP.forEach(item => {
   if (item.day !== lastDay) {
@@ -401,7 +408,6 @@ TRIP.forEach(item => {
 });
 
   
-// Reveal-on-scroll + play/pause any video inside the entry as it enters/leaves view
 const revealObserver = new IntersectionObserver((entries) => {
   entries.forEach(e => {
     if (e.isIntersecting) {
@@ -438,7 +444,6 @@ document.addEventListener('click', (e) => {
     lightbox.classList.add('open');
   }
 });
-
 document.getElementById('lightboxClose').addEventListener('click', () => lightbox.classList.remove('open'));
 lightbox.addEventListener('click', (e) => { if (e.target === lightbox) lightbox.classList.remove('open'); });
 document.addEventListener('keydown', (e) => { if (e.key === 'Escape') lightbox.classList.remove('open'); });
