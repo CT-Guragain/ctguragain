@@ -1,7 +1,7 @@
 <html>
 This is portfolio website,
   <head>
-<h1>I am Chalsh Guragain </h1>, 
+<h1>I am Chalsh Guragain </h1>
 I am learning some front end basics,
   </head>
 <p>I am also trying to learn the backend.
