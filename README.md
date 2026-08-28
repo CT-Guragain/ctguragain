@@ -1,6 +1,6 @@
 <html>
 This is portfolio website,
-<title>I am Chalsh Guragain</title>, 
+<title>I am Chalsh Guragain </title>, 
 I am learning some front end basics,
 <p>I am also trying to learn the backend.
 This git repo has help from the AI.</p>
