@@ -8,10 +8,6 @@ const navLinks = document.getElementById("navLinks");
 const hero = document.querySelector(".hero");
 const heroImage = document.querySelector(".hero img");
 
-/* ---------------------------------------------------------
-   Scroll state + reading progress
-   --------------------------------------------------------- */
-
 const progressBar = document.createElement("div");
 progressBar.className = "scroll-progress";
 document.body.appendChild(progressBar);
@@ -102,11 +98,6 @@ if (navToggle && navLinks) {
   });
 }
 
-
-/* ---------------------------------------------------------
-   Reveal animations
-   --------------------------------------------------------- */
-
 const revealEls = document.querySelectorAll(".reveal");
 
 if ("IntersectionObserver" in window) {
@@ -119,7 +110,8 @@ if ("IntersectionObserver" in window) {
         }
       });
     },
-    {
+   
+     {
       threshold: 0.12,
       rootMargin: "0px 0px -60px 0px"
     }
@@ -218,10 +210,6 @@ if (yearEl) {
   yearEl.textContent = new Date().getFullYear();
 }
 
-
-/* ---------------------------------------------------------
-   Prevent scroll behind mobile menu
-   --------------------------------------------------------- */
 
 const menuStyle = document.createElement("style");
 
