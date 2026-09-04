@@ -460,7 +460,6 @@ footer a { text-decoration: none; color: var(--marigold); }
     transition: right 0.35s ease;
   }
   
-  /* Forces the drawer items to remain white/marigold for contrast inside the dark drawer */
   .site-nav ul a { 
     font-size: 1rem; 
     color: var(--paper) !important; 
