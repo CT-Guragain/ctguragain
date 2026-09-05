@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>My Travels — A Terhathum Trail Log</title>
+<meta name="description" content="A trail-log dashboard of the places documented in the Terhathum journal — elevation, seasons, and every photo along the way.">
+<link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+<a class="skip-link" href="#main">Skip to content</a>
+
+<nav class="site-nav" id="siteNav">
+  <a class="brand" href="index.html#top">Terhathum</a>
+  <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation" aria-expanded="false" aria-controls="navLinks">☰</button>
+  <ul id="navLinks">
+    <li><a href="index.html#lake"><strong>The Lake</strong></a></li>
+    <li><a href="index.html#gufa-pokhari"><strong>Gufa Pokhari</strong></a></li>
+    <li><a href="travel-dashboard.html" class="active"><strong>My Travels</strong></a></li>
+    <li><a href="portfolio.html"><strong>Portfolio</strong></a></li>
+    <li><a href="2daytrip.html"><strong>Nature Lover</strong></a></li>
+    <li><a href="index.html#about"><strong>About</strong></a></li>
+    <li><a href="feedback.html"><strong>Feedback</strong></a></li>
+  </ul>
+</nav>
+
+<main id="main">
+
+  <header class="dash-hero">
+    <div class="dash-hero-inner">
+      <span class="eyebrow">My Travels · a trail log</span>
+      <h1>Every place I've walked into, mapped like a trail</h1>
+      <p>Instead of a map with pins, here's the journal laid out the way it actually felt — a line up the ridge, with a stop for every place, every cloud bank, every photo along the way.</p>
+    </div>
+  </header>
+
+  <section class="dash-figures reveal" aria-label="Trip figures">
+    <div class="dash-figure">
+      <div class="num" data-count="6">0</div>
+      <div class="label">Places documented</div>
+    </div>
+    <div class="dash-figure">
+      <div class="num" data-count="24">0</div>
+      <div class="label">Photos in the journal</div>
+    </div>
+    <div class="dash-figure">
+      <div class="num" data-count="2600" data-suffix=" m">0</div>
+      <div class="label">Highest point reached</div>
+    </div>
+    <div class="dash-figure">
+      <div class="num" data-count="4">0</div>
+      <div class="label">Seasons documented</div>
+    </div>
+  </section>
+
+  <section class="dash-chart reveal" aria-labelledby="chart-heading">
+    <div class="dash-chart-head">
+      <span class="index">Elevation</span>
+      <h2 id="chart-heading">How high above the valley each place sits</h2>
+      <p>Rough elevations for the places in this journal, from the lake near home up to the ridge above Phedap. Bars fill in as you scroll.</p>
+    </div>
+
+    <div class="chart-bars">
+      <div class="chart-bar" style="--bar-color: var(--marigold-bright); --bar-height: 58%;">
+        <div class="bar"></div>
+        <div class="bar-value">~1,665 m</div>
+        <div class="bar-label">The Lake</div>
+      </div>
+      <div class="chart-bar" style="--bar-color: var(--coral); --bar-height: 82%;">
+        <div class="bar"></div>
+        <div class="bar-value">~2,350 m</div>
+        <div class="bar-label">Gufa Pokhari</div>
+      </div>
+      <div class="chart-bar" style="--bar-color: var(--teal-bright); --bar-height: 54%;">
+        <div class="bar"></div>
+        <div class="bar-value">~1,600 m</div>
+        <div class="bar-label">The Road</div>
+      </div>
+      <div class="chart-bar" style="--bar-color: var(--sky-bright); --bar-height: 76%;">
+        <div class="bar"></div>
+        <div class="bar-value">~2,200 m</div>
+        <div class="bar-label">Phedap, Morning</div>
+      </div>
+      <div class="chart-bar" style="--bar-color: var(--marigold-bright); --bar-height: 76%;">
+        <div class="bar"></div>
+        <div class="bar-value">~2,200 m</div>
+        <div class="bar-label">Phedap, Dusk</div>
+      </div>
+      <div class="chart-bar" style="--bar-color: var(--coral); --bar-height: 100%;">
+        <div class="bar"></div>
+        <div class="bar-value">~2,600 m</div>
+        <div class="bar-label">Tinjure Ridge</div>
+      </div>
+    </div>
+  </section>
+
+  <section class="trail-section reveal" aria-labelledby="trail-heading">
+    <div class="trail-head">
+      <span class="index">The Route</span>
+      <h2 id="trail-heading">Six stops, one hillside</h2>
+      <p>Click any photo to see it full-size. Every stop links back to its full story on the journal.</p>
+    </div>
+    <div class="trail">
+      <div class="trail-stop" style="--stop-color: var(--marigold-bright);">
+        <div class="trail-thumb"><img src="images/Clean_Lake.jpg" alt="The still lake near home" data-caption="The Lake — a still morning mirror near home"></div>
+        <div class="trail-copy">
+          <h3>The Lake</h3>
+          <div class="trail-meta"><span>~1,665 m</span><span>Early morning</span></div>
+          <p>The first stop on the walk to school — still enough to hold a perfect double of the sky before the wind picks up. <a href="index.html#lake">Read the full story →</a></p>
+        </div>
+      </div>
+
+      <div class="trail-stop" style="--stop-color: var(--coral);">
+        <div class="trail-thumb"><img src="images/Gufa_Pokhari.jpg" alt="Gufa Pokhari with prayer flags" data-caption="Gufa Pokhari — the wind-shaped tree, wrapped in prayer flags"></div>
+        <div class="trail-copy">
+          <h3>Gufa Pokhari</h3>
+          <div class="trail-meta"><span>~2,350 m</span><span>Above town</span></div>
+          <p>A single wind-shaped tree on a rock island, wrapped in prayer flags — the highest lake in the journal. <a href="index.html#gufa-pokhari">Read the full story →</a></p>
+        </div>
+      </div>
+
+      <div class="trail-stop" style="--stop-color: var(--teal-bright);">
+        <div class="trail-thumb"><img src="images/Road.jpg" alt="The mountain road through Terhathum" data-caption="The Road — nature and progress, hand in hand"></div>
+        <div class="trail-copy">
+          <h3>The Road</h3>
+          <div class="trail-meta"><span>~1,600 m</span><span>Midday</span></div>
+          <p>Smoother blacktop through terrain that used to take twice as long to cross — mountains on one side, sky on the other. <a href="index.html#road">Read the full story →</a></p>
+        </div>
+      </div>
+
+      <div class="trail-stop" style="--stop-color: var(--sky-bright);">
+        <div class="trail-thumb"><img src="images/Heavenly.jpg" alt="Cloud sea over Phedap in the morning" data-caption="Phedap, Morning — a valley filled with cloud"></div>
+        <div class="trail-copy">
+          <h3>Phedap, Morning</h3>
+          <div class="trail-meta"><span>~2,200 m</span><span>Before sunrise</span></div>
+          <p>The valley fills with cloud before the sun clears the ridge — a still, quiet sea that swallows the lower villages whole. <a href="index.html#phedap-morning">Read the full story →</a></p>
+        </div>
+      </div>
+      <div class="trail-stop" style="--stop-color: var(--marigold-bright);">
+        <div class="trail-thumb"><img src="images/Dusk.jpg" alt="Dusk over the Phedap ridgelines" data-caption="Phedap, Dusk — the hills hold their breath"></div>
+        <div class="trail-copy">
+          <h3>Phedap, Dusk</h3>
+          <div class="trail-meta"><span>~2,200 m</span><span>Last light</span></div>
+          <p>The ridge turns gold at the edges while the hills below have already gone dark, waiting on the day to end. <a href="index.html#phedap-dusk">Read the full story →</a></p>
+        </div>
+      </div>
+      <div class="trail-stop" style="--stop-color: var(--coral);">
+        <div class="trail-thumb"><img src="images/Hills.jpg" alt="Layered ridgelines of Terhathum" data-caption="Tinjure Ridge — the highest point in the journal"></div>
+        <div class="trail-copy">
+          <h3>Tinjure Ridge</h3>
+          <div class="trail-meta"><span>~2,600 m</span><span>Highest point</span></div>
+          <p>The tallest ridge in the journal, part of the Tinjure–Milke–Jaljale range that frames the whole hilltown. <a href="index.html#top">Back to the journal →</a></p>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section class="gallery-section reveal" aria-labelledby="gallery-heading">
+    <div class="gallery-head">
+      <span class="index">Every Frame</span>
+      <h2 id="gallery-heading">The full photo set</h2>
+      <p>All the photos from the trail, together. Click any one to open it full-size and step through the rest.</p>
+    </div>
+    <div class="gallery-grid">
+      <a href="images/Hills.jpg"><img src="images/Hills.jpg" alt="Layered ridgelines of Terhathum" data-caption="Tinjure Ridge"></a>
+      <a href="images/Clean_Lake.jpg"><img src="images/Clean_Lake.jpg" alt="The still lake near home" data-caption="The Lake"></a>
+      <a href="images/Gufa_Pokhari.jpg"><img src="images/Gufa_Pokhari.jpg" alt="Gufa Pokhari with prayer flags" data-caption="Gufa Pokhari"></a>
+      <a href="images/Road.jpg"><img src="images/Road.jpg" alt="The mountain road through Terhathum" data-caption="The Road"></a>
+      <a href="images/Heavenly.jpg"><img src="images/Heavenly.jpg" alt="Cloud sea over Phedap in the morning" data-caption="Phedap, Morning"></a>
+      <a href="images/Dusk.jpg"><img src="images/Dusk.jpg" alt="Dusk over the Phedap ridgelines" data-caption="Phedap, Dusk"></a>
+      <a href="images/Me.jpg"><img src="images/Me.jpg" alt="Portrait of Chalsh Guragain" data-caption="Chalsh Guragain"></a>
+    </div>
+  </section>
+
+  <p class="dash-note" style="background: var(--paper); margin: 0; padding-top: 0; padding-bottom: 48px;">
+    Elevations, seasons, and photo counts above are estimates drawn from the journal text, not a GPS log — swap in your real numbers whenever you have them and the bars and figures will resize automatically.
+  </p>
+</main>
+
+<footer>
+  <span>© <span id="year"></span> Chalsh Guragain · Terhathum, Nepal</span>
+  <a href="index.html#top">Back to journal ↑</a>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>
