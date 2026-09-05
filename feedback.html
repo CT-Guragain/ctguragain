@@ -8,22 +8,7 @@
 <title>Support & Feedback - Terhathum</title>
 <link rel="stylesheet" href="styles.css">
 <link rel="stylesheet" href="feedback.css">
-</head>
-<body>
-<a class="skip-link" href="#main">Skip to content</a>
-
-<nav class="site-nav">
-    <a href="index.html" class="brand">Terhathum</a>
-
-    <button class="nav-toggle" id="navToggle">☰</button>
-    <ul class="nav-links" id="navLinks">
-        <li><a href="index.html">Home</a></li>
-        <li><a href="portfolio.html">Portfolio</a></li>
-        <li><a href="feedback.html" class="active">Support</a></li>
-    </ul>
-
-</nav>  
-  <style>
+<style>
     * {
       margin: 0;
       padding: 0;
@@ -31,8 +16,8 @@
       font-family: 'Segoe UI', Arial, sans-serif;
     }
 
-    body {
-      background-color: f8f8f8;
+    body.feedback-page {
+      background-color: #f8f8f8;
       color: #0f172a;
     }
     .flag-banner-header {
@@ -86,7 +71,23 @@
     }
   </style>
 </head>
-<body>
+<body class="feedback-page">
+<a class="skip-link" href="#main">Skip to content</a>
+
+<nav class="site-nav" id="siteNav">
+  <a href="index.html" class="brand">Terhathum</a>
+  <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation" aria-expanded="false" aria-controls="navLinks">☰</button>
+  <ul id="navLinks">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="index.html#lake">The Lake</a></li>
+    <li><a href="index.html#gufa-pokhari">Gufa Pokhari</a></li>
+    <li><a href="travel-dashboard.html">My Travels</a></li>
+    <li><a href="portfolio.html">Portfolio</a></li>
+    <li><a href="2daytrip.html">Nature Lover</a></li>
+    <li><a href="feedback.html" class="active">Feedback</a></li>
+  </ul>
+</nav>
+
   <header class="flag-banner-header">
     <div class="banner-frame">
       <img src="images/banner.jpg" alt="Chalshguragain Mountain Banner Logo">
@@ -180,7 +181,7 @@
     <p>&copy; 2026 Chalsh Guragain. All Rights Reserved.</p>
     <p>Terhathum, Nepal</p>
 </footer>
-    
+<script src="script.js"></script>
 <script src="feedback.js"></script>
 </body>
 </html>
